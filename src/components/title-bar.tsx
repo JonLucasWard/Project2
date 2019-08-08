@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
-import RevLogo from '../assets/rev-logo.png';
+import {Link} from 'react-router-dom';
+import RevLogo from '../assets/rev-logo.png'
 
-
-const NavComponent: React.FC = () => {
+const BlankComponent: React.FC = () => {
     return (
         <div>
             <nav className="navbar navbar-toggleable-md navbar-expand-lg navbar-light bg-light display-front nav-pad">
@@ -16,25 +15,11 @@ const NavComponent: React.FC = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarsExample04">
-                    <ul className="navbar-nav ml-auto margin-nav">
-                        <li className="nav-item active">
-                            <Link to="/first"
-                                className="unset-anchor nav-link">First</Link>
-                        </li>
-                        <li className="nav-item active">
-                            <Link to="/second"
-                                className="unset-anchor nav-link">Second</Link>
-                        </li>
-                        <li className="nav-item active">
-                            <Link to="/clicker"
-                                className="unset-anchor nav-link">Clicker</Link>
-                        </li>
-
-                    </ul>
+                    <ul className="navbar-nav ml-auto margin-nav"></ul>
                 </div>
             </nav>
         </div>
     );
 }
 
-export default NavComponent;
+export default BlankComponent;
