@@ -1,3 +1,4 @@
+// Copied from poke
 # Initial Goal
 Create a clicker component that tracks state using the Redux State store
 
