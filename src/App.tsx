@@ -1,26 +1,28 @@
 import React from 'react';
-// import './App.scss';
-import { Provider } from 'react-redux';
-import { store } from './Store';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import ClickerComponent from './components/clicker.component';
-import NavComponent from './components/nav.component';
-// If you exported the connected component as a default export
-// ensure you importing that component with a default import (no {})
-import PokeComponent from './components/poke.component';
+import logo from './logo.svg';
+import './App.css';
+import './include/bootstrap';
+import './App.css';
+import { HashRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router';
+import BlankComponent from './components/title-bar';
+import { SearchDisplayComponent } from './components/search-display-component';
+//import {SearchDisplayComponent} from './components/search-display-component'
 
-const App: React.FC = () => { // app is a function component because it just runs immediately, it is the store!
+const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <NavComponent />
-        <Switch /* switch different routes based on routers, clicking a component opens new route*/>
-          <Route path="/clicker" component={ClickerComponent} />
-          <Route path="/poke" component={PokeComponent} />
-          <Route component={ClickerComponent} />
+    <HashRouter>
+      <div>
+
+        <Switch>
+
+          <Route path="/" exact component={SearchDisplayComponent} />
+
+
         </Switch>
-      </BrowserRouter>
-    </Provider>
+
+      </div>
+    </HashRouter>
   );
 }
 
