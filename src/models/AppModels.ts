@@ -13,9 +13,10 @@ export interface User {
     email: string,
     phone: string,
     driverslicenseno: string
+    roleid: number;
 };
 
-export interface Rental { // MIGHT CHANGE
+export interface Rental {
     id: number,
     userid: number,
     carid: number,
@@ -33,15 +34,20 @@ export interface Car {
     occupancy: number,
     transmission: string,
     mileage: number,
-    color: number,
+    color: string,
     ac: boolean,
     statusid: number,
     rate: number,
     typeid: number
 };
 
-export interface PayInfo { // I'M GUESSING
+export interface PayInfo {
     id: number,
     userid: number,
-    creditnumber: number
+    transactionid: number,
+    nameoncard: string,
+    cardno: string,
+    expdate: string,
+    cvv: number,
+    amount: number
 };

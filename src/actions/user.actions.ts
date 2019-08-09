@@ -37,11 +37,11 @@ export const userPageRequest =
     }
 
 export const userUpdate =
-    (username: string, password: string, firstname: string, lastname: string, email: string, phone: string, driverslicense: string) =>
+    (username: string, password: string, firstname: string, lastname: string, email: string, phone: string, driverslicense: string, roleid: 0) =>
         (dispatch: any) => {
             dispatch({
                 payload: {
-                    username, password, firstname, lastname, email, phone, driverslicense
+                    username, password, firstname, lastname, email, phone, driverslicense, roleid
                 },
                 type: userTypes.USER_UPD8_REQUEST
             });
