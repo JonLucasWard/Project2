@@ -13,13 +13,10 @@ const App: React.FC = () => {
   return (
     <HashRouter>
     <div>
-      
     
-    <BlankComponent/>
-      
-
       <Switch>
-          <Route component={SearchDisplayComponent} />
+        
+          <Route path="/" exact component={SearchDisplayComponent} />
  
 
         </Switch>

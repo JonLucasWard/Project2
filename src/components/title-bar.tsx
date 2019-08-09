@@ -4,7 +4,7 @@ import RevLogo from '../assets/rev-logo.png'
 
 const BlankComponent: React.FC = () => {
     return (
-        <div>
+        <div id='title-bar'>
             <nav className="navbar navbar-toggleable-md navbar-expand-lg navbar-light bg-light display-front nav-pad">
                 <div className="navbar-header c-pointer shift-left">
                     <Link to="/first" className="unset-anchor">

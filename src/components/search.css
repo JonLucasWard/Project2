@@ -3,10 +3,29 @@ button.button {
     transition-duration: 0.4s;
     position: absolute;
     right: 100px;
-    bottom: 10px;
+    bottom: 50px;
+    width: 6.3%;
   }
-  
-  button.button:hover {
-    background-color: #4CAF50; /* Green */
+
+  button.button2 {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    position: absolute;
+    right: 100px;
+    top: 60px;
+  }
+
+  a.list-group-item list-group-item-action active{
+    background-color: white;
     color: white;
   }
+
+  #title-bar{
+    padding:0px;
+  }
+  
+  /* button.button:hover {
+    background-color: #4CAF50; 
+    color: white;
+  } */
+  
