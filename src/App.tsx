@@ -8,6 +8,7 @@ import NavComponent from './components/nav.component';
 // If you exported the connected component as a default export
 // ensure you importing that component with a default import (no {})
 import PokeComponent from './components/poke.component';
+import UserComponent from './components/user.component';
 
 const App: React.FC = () => { // app is a function component because it just runs immediately, it is the store!
   return (
@@ -17,6 +18,8 @@ const App: React.FC = () => { // app is a function component because it just run
         <Switch /* switch different routes based on routers, clicking a component opens new route*/>
           <Route path="/clicker" component={ClickerComponent} />
           <Route path="/poke" component={PokeComponent} />
+          <Route path="/user" component={UserComponent} /* Jonathan's User Profile */ />
+
           <Route component={ClickerComponent} />
         </Switch>
       </BrowserRouter>

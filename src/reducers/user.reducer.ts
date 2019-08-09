@@ -1,21 +1,12 @@
 import { IUserState } from ".";
 import { userTypes } from "../actions/user.actions";
 import { User, Rental } from "../models/AppModels";
+import { MockUser, MockUser2, MockRental, MockRental2 } from "../models/dummyData";
 
 // Defining initial state of clicker
 const initialState: IUserState = {
-    thisUser: {
-        id: 0,
-        username: 'none',
-        firstname: 'none',
-        lastname: 'none',
-        password: 'none', // displays "Protected" when logged in, can only change password, not view
-        email: 'none',
-        driverslicenseno: 'none',
-        phone: 'none',
-        roleid: 0
-    }, //axios get this user info
-    rentals: [{ id: 0, userid: 0, carid: 0, daterented: 'Today', expectedreturn: 'Today', description: 'hello', approved: false }], //axios get this user's rentals
+    thisUser: MockUser, //axios get this user info, password should never actually display properly
+    rentals: [MockRental], //axios get this user's rentals
     page: 1 //display first page of rentals
 };
 
@@ -29,18 +20,8 @@ export const userReducer = (state = initialState, action: any) => {
         case userTypes.USER_GET_RESOLVED:
             return {
                 ...state,
-                thisUser: {
-                    id: 0,
-                    username: 'none',
-                    firstname: 'none',
-                    lastname: 'none',
-                    password: 'none', // displays "Protected" when logged in, can only change password, not view
-                    email: 'none',
-                    driverslicenseno: 'none',
-                    phone: 'none',
-                    roleid: 0
-                }, //axios get this user info... I guess I don't really need this do I?
-                rentals: ['beep'] //axios get rental list 
+                thisUser: MockUser2, //axios get this user info... I guess I don't really need this do I?
+                rentals: [MockRental2] //axios get rental list 
             }
         case userTypes.USER_PAGE_REQUEST:
             return {
@@ -50,22 +31,12 @@ export const userReducer = (state = initialState, action: any) => {
         case userTypes.USER_UPD8_REQUEST:
             return {
                 ...state,
-                thisUser: {
-                    id: 0,
-                    username: 'none',
-                    firstname: 'none',
-                    lastname: 'none',
-                    password: 'none', // displays "Protected" when logged in, can only change password, not view
-                    email: 'none',
-                    driverslicenseno: 'none',
-                    phone: 'none',
-                    roleid: 0
-                }, //we are submitted changed info, then getting it back from the DB
+                thisUser: MockUser, //we are submitted changed info, then getting it back from the DB
             }
         case userTypes.DELETE_RENTAL:
             return {
                 ...state,
-                rentals: ['swag'] //list should have changed
+                rentals: [MockRental] //list should have changed
             }
         default: break;
     }
