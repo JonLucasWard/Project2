@@ -1,14 +1,12 @@
 import { IUserState } from ".";
 import { userTypes } from "../actions/user.actions";
-import { User, Rental } from "../models/AppModels";
 import { MockUser, MockUser2, MockRental, MockRental2 } from "../models/dummyData";
 
 // Defining initial state of component
 const initialState: IUserState = {
     thisUser: MockUser, //axios get this user info, password should never actually display properly
-    rentals: [MockRental], //axios get this user's rentals
+    rentals: [MockRental, MockRental2, MockRental], //axios get this user's rentals
     page: 1, //display first page of rentals
-    inputValues: MockUser
 };
 
 
@@ -32,17 +30,14 @@ export const userReducer = (state = initialState, action: any) => {
         case userTypes.USER_UPD8_REQUEST:
             return {
                 ...state,
-                thisUser: MockUser, //we are submitted changed info, then getting it back from the DB
+                thisUser: action.payload.user//we are submitted changed info, then getting it back from the DB
             }
         case userTypes.DELETE_RENTAL:
+            // axios talk to database to remove rental using action.payload.id //id of rental
+            // axios talk to database to get rentals list, assign it to a variable
             return {
                 ...state,
-                rentals: [MockRental] //list should have changed
-            }
-        case userTypes.INPUT_UPDATE:
-            return {
-                ...state,
-                inputValues: action.payload.inputValue
+                rentals: [MockRental2, MockRental] //list should have changed
             }
         default: break;
     }

@@ -1,5 +1,4 @@
 import React from 'react';
-import Axios from 'axios';
 import { IState, IUserState } from '../../reducers';
 import { userGetResolved, userPageRequest, userUpdate, deleteRental } from '../../actions/user.actions';
 import { connect } from 'react-redux';
@@ -13,16 +12,17 @@ export interface IUserProps { // Properties that sub components can inherit
     // It is not necessary to return any value when this is called, the state update is what we want
     userGetResolved: (id: number) => void;
     userPageRequest: (page: number) => void;
-    userUpdate: (inputValue: string) => void;
+    userUpdate: (user: object) => void;
     deleteRental: (id: number) => void;
-    inputUpdate: (inputValue: string) => void;
 }
-
-
 
 export class UserComponent extends React.Component<IUserProps> {
     constructor(props: any) { // create own properties
         super(props); // inherit React component properties
+    }
+
+    submitting = (user: object) => {
+        this.props.userUpdate(user);
     }
 
     render() {
@@ -30,7 +30,7 @@ export class UserComponent extends React.Component<IUserProps> {
             <div>
                 <div id="user-display"/* div for User's personal information*/>
                     <h1>User Profile</h1>
-                    <ProfileComponent user={this.props.user.thisUser} />
+                    <ProfileComponent user={this.props.user.thisUser} submitting={this.submitting} />
                 </div>
                 <div id="rent-display" /* div for rental history*/>
                     <h1>Rented Cars</h1>

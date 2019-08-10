@@ -1,5 +1,4 @@
 import React from 'react';
-import Axios from 'axios';
 import { Rental } from '../../models/AppModels';
 import { RentalComponent } from './rental.component';
 

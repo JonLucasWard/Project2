@@ -4,7 +4,6 @@
 import { combineReducers } from "redux";
 import { clickerReducer } from "./clicker.reducer";
 import { pokeReducer } from "./poke.reducer";
-import { useImperativeHandle } from "react";
 import { User, Rental, } from "../models/AppModels";
 import { userReducer } from "./user.reducer";
 
@@ -12,7 +11,6 @@ export interface IUserState { // state of user profile component
     thisUser: User, //user's info
     rentals: Rental[], //list of user's rentals
     page: number, //current page of rental list we're on
-    inputValues: any //array of different input fields
 }
 
 export interface IClickerState { // set state interface of clicker
