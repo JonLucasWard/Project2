@@ -56,3 +56,12 @@ export const deleteRental =
             type: userTypes.DELETE_RENTAL
         });
     }
+
+export const inputUpdate = (inputValue: string) => (dispatch: any) => { // as previous
+    dispatch({
+        payload: {
+            inputValue
+        },
+        type: pokeTypes.INPUT_UPDATE
+    });
+}

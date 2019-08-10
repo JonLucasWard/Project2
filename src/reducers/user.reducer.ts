@@ -3,7 +3,7 @@ import { userTypes } from "../actions/user.actions";
 import { User, Rental } from "../models/AppModels";
 import { MockUser, MockUser2, MockRental, MockRental2 } from "../models/dummyData";
 
-// Defining initial state of clicker
+// Defining initial state of component
 const initialState: IUserState = {
     thisUser: MockUser, //axios get this user info, password should never actually display properly
     rentals: [MockRental], //axios get this user's rentals
@@ -11,7 +11,7 @@ const initialState: IUserState = {
 };
 
 
-/* Define the reducer for the clicker, The reducer will determine which action has taken place
+/* Define the reducer for the component, The reducer will determine which action has taken place
  and if it needs to, it will return a new state if the action requires it. If not, we will return 
  the current state. Usually, we will switch on an action, and capture the various actions
  that we need to handle */
@@ -27,6 +27,11 @@ export const userReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 page: 1// Uh... depends what the user put in...
+            }
+        case pokeTypes.INPUT_UPDATE:
+            return { //spread original state then replace changes
+                ...state,
+                inputValue: action.payload.inputValue
             }
         case userTypes.USER_UPD8_REQUEST:
             return {
