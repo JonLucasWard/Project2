@@ -11,7 +11,8 @@ import { userReducer } from "./user.reducer";
 export interface IUserState { // state of user profile component
     thisUser: User, //user's info
     rentals: Rental[], //list of user's rentals
-    page: number //current page of rental list we're on
+    page: number, //current page of rental list we're on
+    inputValues: any //array of different input fields
 }
 
 export interface IClickerState { // set state interface of clicker
@@ -32,11 +33,11 @@ export interface IPokeState { // set state interface of poke
 export interface IState {
     clicker: IClickerState,
     poke: IPokeState,
-    userProfile: IUserState
+    userProfile: IUserState,
 }
 
 export const state = combineReducers<IState>({
     clicker: clickerReducer,
     poke: pokeReducer,
-    userProfile: userReducer
+    userProfile: userReducer,
 })

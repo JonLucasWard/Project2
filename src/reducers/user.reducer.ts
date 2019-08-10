@@ -7,7 +7,8 @@ import { MockUser, MockUser2, MockRental, MockRental2 } from "../models/dummyDat
 const initialState: IUserState = {
     thisUser: MockUser, //axios get this user info, password should never actually display properly
     rentals: [MockRental], //axios get this user's rentals
-    page: 1 //display first page of rentals
+    page: 1, //display first page of rentals
+    inputValues: MockUser
 };
 
 
@@ -28,11 +29,6 @@ export const userReducer = (state = initialState, action: any) => {
                 ...state,
                 page: 1// Uh... depends what the user put in...
             }
-        case userTypes.INPUT_UPDATE:
-            return { //spread original state then replace changes
-                ...state,
-                inputValue: action.payload.inputValue
-            }
         case userTypes.USER_UPD8_REQUEST:
             return {
                 ...state,
@@ -42,6 +38,11 @@ export const userReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 rentals: [MockRental] //list should have changed
+            }
+        case userTypes.INPUT_UPDATE:
+            return {
+                ...state,
+                inputValues: action.payload.inputValue
             }
         default: break;
     }

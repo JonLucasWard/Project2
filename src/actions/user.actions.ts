@@ -14,7 +14,7 @@ export const userTypes = { // make object of action types for reducer to underst
     USER_PAGE_REQUEST: 'USER_PAGE_REQUEST', // change rental page
     USER_UPD8_REQUEST: 'USER_UPD8_REQUEST', // change user information
     DELETE_RENTAL: 'DELETE_RENTAL', // Delete a rental
-    INPUT_UPDATE: 'INPUT_UPDATE' // changing any input at all on the user page
+    INPUT_UPDATE: 'INPUT_UPDATE' // allow input to display when typed into
 };
 
 export const userGetResolved = // specific action
@@ -58,10 +58,11 @@ export const deleteRental =
         });
     }
 
-export const inputUpdate = (inputValue: string) => (dispatch: any) => { // as previous
+export const inputUpdate = (fieldValue: string, inputValue: any) => (dispatch: any) => { // as previous
+    var change = `${fieldValue}: ${inputValue}`
     dispatch({
         payload: {
-            inputValue
+            change
         },
         type: userTypes.INPUT_UPDATE
     });

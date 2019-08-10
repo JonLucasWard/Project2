@@ -18,16 +18,11 @@ export interface IUserProps { // Properties that sub components can inherit
     inputUpdate: (inputValue: string) => void;
 }
 
+
+
 export class UserComponent extends React.Component<IUserProps> {
     constructor(props: any) { // create own properties
         super(props); // inherit React component properties
-        this.handleInputChange = this.handleInputChange.bind(this);
-    }
-
-    handleInputChange = (e: any) => { // accept value and call the inputUpdate function 
-        console.log('input changing');
-        const value = e.target.value;
-        this.props.inputUpdate(value);
     }
 
     render() {
