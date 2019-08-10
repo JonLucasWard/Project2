@@ -13,7 +13,8 @@ export const userTypes = { // make object of action types for reducer to underst
     USER_GET_RESOLVED: 'USER_GET_RESOLVED', // get user info for left display
     USER_PAGE_REQUEST: 'USER_PAGE_REQUEST', // change rental page
     USER_UPD8_REQUEST: 'USER_UPD8_REQUEST', // change user information
-    DELETE_RENTAL: 'DELETE_RENTAL' // Delete a rental
+    DELETE_RENTAL: 'DELETE_RENTAL', // Delete a rental
+    INPUT_UPDATE: 'INPUT_UPDATE' // changing any input at all on the user page
 };
 
 export const userGetResolved = // specific action
@@ -62,6 +63,6 @@ export const inputUpdate = (inputValue: string) => (dispatch: any) => { // as pr
         payload: {
             inputValue
         },
-        type: pokeTypes.INPUT_UPDATE
+        type: userTypes.INPUT_UPDATE
     });
 }

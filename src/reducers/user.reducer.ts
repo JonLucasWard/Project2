@@ -28,7 +28,7 @@ export const userReducer = (state = initialState, action: any) => {
                 ...state,
                 page: 1// Uh... depends what the user put in...
             }
-        case pokeTypes.INPUT_UPDATE:
+        case userTypes.INPUT_UPDATE:
             return { //spread original state then replace changes
                 ...state,
                 inputValue: action.payload.inputValue

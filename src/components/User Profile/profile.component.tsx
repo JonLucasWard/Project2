@@ -6,9 +6,15 @@ interface IProfileComponentProps {
     user: User;
 }
 
-export class ProfileComponent extends React.Component<IProfileComponentProps, any> {
+export class ProfileComponent extends React.Component<IProfileComponentProps> {
     constructor(props: any) { // create own properties
         super(props); // inherit React component properties
+    }
+
+    handleInputChange = (e: any) => { // accept value and call the inputUpdate function 
+        console.log('input changing');
+        const value = e.target.value;
+        this.props.inputUpdate(value);
     }
 
     render() {
