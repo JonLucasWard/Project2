@@ -1,23 +1,12 @@
-.App {
-  margin: auto;
-  background-image: linear-gradient(#333,white) !important;
-  height: 100%;
-  width: 100%;
-  padding: 20px;
-}
-
-
-label {
-  color: white;
-}
-
 .date-label {
   font-size: 20px;
   text-decoration: underline;
   padding: 15px;
   color: white;
 }
-
+.white-label {
+  color: white;
+}
 .center-button {
   text-align: center;
 }
@@ -28,4 +17,42 @@ label {
 
 .tabs-color {
   background-color: silver;
+}
+
+select {
+  padding: 5px;
+}
+
+#margin-hero {
+  margin: 0px;
+}
+
+#hero {
+  background-image: url('./assets/car-rental-search-img.png');
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  z-index: -10;
+  margin: 0;
+}
+
+#hero-overlay {
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -5;
+}
+
+.container {
+  position: absolute;
+  margin: 20px;
+  padding: 16px;
+  background-color: #333;
+  opacity: 0.9;
 }

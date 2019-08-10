@@ -1,7 +1,11 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom';
-import  { Tabs, Tab, Table } from 'react-bootstrap';
-import background from '../assets/darkness.png';
+import { ManagerTabsComponent } from './manager-tabs-component';
+import { HashRouter, Switch } from 'react-router-dom';
+import { Route } from 'react-router';
+import { CarInformationComponent } from './car-information-component';
+import { UserInformationComponent } from './user-information-component';
+import { TransactionInformationComponent } from './transaction-information-component';
 
 export class ManagerInputComponent extends React.Component<any, any> {
     constructor(props: any) {
@@ -13,7 +17,7 @@ handleUserSubmit() {
 }
 
 handleCarSubmit() {
-    alert("REtrieving car inforamtion");
+    alert("Retrieving car inforamtion");
 }
 
 handleTransactionSubmit() {
@@ -23,64 +27,9 @@ handleTransactionSubmit() {
 render() {
     return (
         <div>
-            <Tabs className="tabs-color" defaultActiveKey="profile" id="uncontrolled-tab-example">
-                <Tab eventKey="/users" title="User Information">
-                </Tab>
-                <Tab Link to="/cars" title="Car Information">
-                </Tab>
-                <Tab Link to="/transactions" title="Transaction Information">
-                </Tab>
-            </Tabs>
-            <Table striped bordered hover variant="dark">
-                <thead>
-                    <tr>
-                        <th>User ID</th>
-                        <th>Username</th>
-                        <th>Password</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Drivers License Number</th>
-                        <th>Role</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </Table>
+            <HashRouter>
+            <ManagerTabsComponent />
+            </HashRouter>
         </div>
     )
 }

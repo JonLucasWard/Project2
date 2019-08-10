@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import NavComponent from './components/nav-component';
 import './include/bootstrap';
@@ -9,7 +8,22 @@ import { InputRentalFormComponent } from './components/search-page-input-forms';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import { ManagerInputComponent } from './components/manager-input-component';
 import { CarInformationComponent } from './components/car-information-component';
-import { TransactionInformationComponent } from './components/transaction-infomration-component'
+import { TransactionInformationComponent } from './components/transaction-information-component';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
+import { UserInformationComponent } from './components/user-information-component';
+import { GetAllUsersComponents } from './components/get-all-users-component';
+import { GetUserByIdComponent } from './components/get-user-by-id-component';
+import { UpdateUserInformationComponent } from './components/update-user-information-component';
+import { GetAllCarsComponents } from './components/get--all-cars-component';
+import { GetAllCarsAvailableComponent } from './components/get-all-cars-available';
+import { EnterNewCarComponent } from './components/enter-new-car-component';
+import { GetAllTransactionsComponent } from './components/get-all-transactions-component';
+import { GetTransactionsbyUserId } from './components/get-transactions-by-users';
+import { UpdateTransactionComponent } from './components/update-transactions-component';
+// import { GetAllCarInformationComponent } from './components/get-all-car-information-component';
+
 const App: React.FC = () => {
   return (
     <div>
@@ -19,13 +33,18 @@ const App: React.FC = () => {
           <Route path="/home" />
           <Route path="/look-for-a-car" component={InputRentalFormComponent} />
           <Route path="/manager-actions" component={ManagerInputComponent} />
-            <Switch>
-              <Route path="/car-infomration" component={CarInformationComponent} />
-              <Route path="/transaction-information" component={TransactionInformationComponent} />
-            </Switch>
-          <Route path="/action" />
-          <Route path="/another-action" />
-          <Route path="/something-else-here" />
+          <Route path="/users" component={UserInformationComponent} />
+          <Route path="/get-all-users" component={GetAllUsersComponents} />
+          <Route path="/get-user-by-id" component={GetUserByIdComponent} />
+          <Route path="/update-user-information" component={UpdateUserInformationComponent} />
+          <Route path="/cars" component={CarInformationComponent} />
+          <Route path="/get-all-cars-information" component={GetAllCarsComponents} />
+          <Route path="/get-all-cars-available" component={GetAllCarsAvailableComponent} />
+          <Route path="/enter-a-new-car" component={EnterNewCarComponent} />
+          <Route path="/transactions" component={TransactionInformationComponent} /> 
+          <Route path="/get-all-transactions" component={GetAllTransactionsComponent} />  
+          <Route path="/get-transactions-by-user" component={GetTransactionsbyUserId} />  
+          <Route patth="/update-transaction" component={UpdateTransactionComponent} /> 
         </Switch>
       </HashRouter>
     </div>

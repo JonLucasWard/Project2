@@ -20,16 +20,6 @@ const NavComponent: React.FC = () => {
                         <li className="nav-item">
                             <Link to="/manager-actions"className="nav-link" href="#">Manager Actions</Link>
                         </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Manager Actions
-                            </a>
-                            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <Link to="/action" className="dropdown-item">View Cars</Link>
-                                <Link to="another-action" className="dropdown-item">View Transactions</Link>
-                                <Link to="something-else-here" className="dropdown-item">View Employees</Link>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </nav>
