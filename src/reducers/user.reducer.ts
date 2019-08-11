@@ -5,8 +5,8 @@ import { MockUser, MockUser2, MockRental, MockRental2 } from "../models/dummyDat
 // Defining initial state of component
 const initialState: IUserState = {
     thisUser: MockUser, //axios get this user info, password should never actually display properly
-    rentals: [MockRental, MockRental2, MockRental], //axios get this user's rentals
-    page: 1, //display first page of rentals
+    rentals: [MockRental, MockRental2], //axios get this user's rentals
+    page: 1 //display first page of rentals
 };
 
 
@@ -35,9 +35,12 @@ export const userReducer = (state = initialState, action: any) => {
         case userTypes.DELETE_RENTAL:
             // axios talk to database to remove rental using action.payload.id //id of rental
             // axios talk to database to get rentals list, assign it to a variable
+            let newRentals = state.rentals.filter(function (value) {
+                return value.id != action.payload.id;
+            })
             return {
                 ...state,
-                rentals: [MockRental2, MockRental] //list should have changed
+                rentals: newRentals //list should have changed
             }
         default: break;
     }

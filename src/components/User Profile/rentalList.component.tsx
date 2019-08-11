@@ -4,6 +4,7 @@ import { RentalComponent } from './rental.component';
 
 interface IRentalListComponentProps {
     rentals: Rental[]
+    deleteRental: (id: number) => void;
 }
 
 export class RentalListComponent extends React.Component<IRentalListComponentProps, any> {
@@ -12,7 +13,7 @@ export class RentalListComponent extends React.Component<IRentalListComponentPro
     }
 
     render() {
-        const rents = this.props.rentals.map(rental => (<RentalComponent key={rental.id} rental={rental} />))
+        const rents = this.props.rentals.map(rental => (<RentalComponent key={rental.id} rental={rental} deleter={this.props.deleteRental} />))
         return (
             <table>
                 <thead>

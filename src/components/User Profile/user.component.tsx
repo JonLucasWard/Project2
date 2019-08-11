@@ -4,6 +4,8 @@ import { userGetResolved, userPageRequest, userUpdate, deleteRental } from '../.
 import { connect } from 'react-redux';
 import { ProfileComponent } from './profile.component';
 import { RentalListComponent } from './rentalList.component';
+import { Pagination } from 'reactstrap';
+import PaginationComponent from './pagination.component';
 
 export interface IUserProps { // Properties that sub components can inherit
     user: IUserState; //accept interface from reducers
@@ -25,6 +27,10 @@ export class UserComponent extends React.Component<IUserProps> {
         this.props.userUpdate(user);
     }
 
+    deleter = (id: number) => {
+        this.props.deleteRental(id);
+    }
+
     render() {
         return (
             <div>
@@ -34,7 +40,8 @@ export class UserComponent extends React.Component<IUserProps> {
                 </div>
                 <div id="rent-display" /* div for rental history*/>
                     <h1>Rented Cars</h1>
-                    <RentalListComponent rentals={this.props.user.rentals} />
+                    <RentalListComponent rentals={this.props.user.rentals} deleteRental={this.deleter} />
+                    <PaginationComponent pagination={this.props.user.page} />
                 </div>
             </div>
         );

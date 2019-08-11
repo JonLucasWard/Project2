@@ -3,11 +3,16 @@ import { Rental } from '../../models/AppModels'
 
 interface IRentalComponentProps {
     rental: Rental;
+    deleter: any;
 }
 
 export class RentalComponent extends React.Component<IRentalComponentProps, any> {
     constructor(props: any) { // create own properties
         super(props); // inherit React component properties
+    }
+
+    deleteRental = () => { // when clicked, call delete value to dispatcher
+        this.props.deleter(this.props.rental.id);
     }
 
     render() {
@@ -20,7 +25,7 @@ export class RentalComponent extends React.Component<IRentalComponentProps, any>
                 <td>{this.props.rental.expectedreturn}</td>
                 <td>{this.props.rental.description}</td>
                 <td>{this.props.rental.approved}</td>
-                <td><button>Delete</button></td>
+                <td><button onClick={() => this.deleteRental()}>Delete</button></td>
             </tr>
         );
     }
