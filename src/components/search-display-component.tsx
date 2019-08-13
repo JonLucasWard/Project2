@@ -1,15 +1,31 @@
 import * as React from 'react';
+import {IState, ISearchState} from '../reducers/index'
+import {connect} from 'react-redux'
 import {Link} from 'react-router-dom';
 import './search.css'
+import {getRental} from '../actions/search.action'
 
+export interface ISearchProps {
+  search: ISearchState;
+
+  getRental: () => void;
+}
 
 export class SearchDisplayComponent extends React.Component <any,any> {
+  constructor(props: any) {
+    super(props);
+  }
+
+ function getRentals(){ {this.props.getRental();}
+}
+  
     render(){
         return(
             
             <div className="list-group">
   <a href="#" className="list-group-item list-group-item-action active">
     <div className="d-flex w-100 justify-content-between">
+      <button onClick = {()=> this.getRentals()}>Test</button>
       <h5 className="mb-1">Car#1</h5>
       <button className="button">Rent</button>
       <button className="button2">More Info</button>
@@ -68,3 +84,12 @@ export class SearchDisplayComponent extends React.Component <any,any> {
         )
     }
 }
+const mapStateToProps = (state: IState) => ({ // define mapStateToProps function, making poke state
+  search: state.search
+});
+
+const mapDispatchToProps = { // define mapDispatchToProps?
+  getRentals: getRental
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchDisplayComponent);

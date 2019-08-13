@@ -27,7 +27,7 @@ export class NavComponent extends React.PureComponent<INaveProps> {
 
 
                         <li className="nav-item active" /* clicker is state is displayed here*/>
-                            <Link to="/clicker" className="unset-anchor nav-link">Clicker {this.props.clicker.clicks}</Link>
+                            <Link to="/clicker" className="unset-anchor nav-link">Clicker {this.props.clicker.amount}</Link>
                         </li>
 
                         <li className="nav-item active dropdown">
