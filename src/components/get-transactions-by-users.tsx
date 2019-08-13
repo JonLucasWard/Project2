@@ -9,9 +9,9 @@ export class GetTransactionsbyUserId extends React.Component<any,any> {
 
     render() {
         return(
-            <div>
+            <div id="manager-component-background">
                 <ManagerTabsComponent />
-                <h1>Transaction Information: View Transactions by Users</h1>
+                <h1 id="white-heading">Transaction Information: View Transactions by Users</h1>
                 <hr></hr>
                     <div className="form-row">
                         <Link to="/get-all-transactions">
@@ -30,11 +30,11 @@ export class GetTransactionsbyUserId extends React.Component<any,any> {
                     <div className="form-row">
                         <br></br>
                         <div className="form-group col-md-2">
-                            <label id="label">Search Transaction by User ID</label>
+                            <label className="white-label">Search Transaction by User ID</label>
                         </div>
                         <div className="form-group col-md-2">
                             <input type="number" />
-                            <input type="submit" />
+                            <button type="submit" className="btn btn-dark">submit</button>
                         </div>
                         <div className="form-group col-md-8">
                         <table className="table table-dark">

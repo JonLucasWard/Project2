@@ -11,9 +11,9 @@ export class UserInformationComponent extends React.Component<any,any> {
 
     render() {
         return (
-            <div>
+            <div id="manager-component-background">
                 <ManagerTabsComponent />
-                <h1>User Information</h1>
+                <h1 id="white-heading">User Information</h1>
                 <hr></hr>
                 <form>
                     <div className="form-row">

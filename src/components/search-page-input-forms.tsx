@@ -6,6 +6,18 @@ import backgroundImage from '../assets/darkness.png';
 export class InputRentalFormComponent extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
+
+        this.state = {
+            pickUpMonth: "",
+            pickUpDay: "",
+            pickUpTime: "",
+            dropOffMonth: "",
+            dropOffDay: "",
+            dropOffTime: "",
+            carType: "",
+            ac: "",
+            occupancy: ""
+        }
        
     }
     handleSubmit() {
@@ -102,7 +114,7 @@ export class InputRentalFormComponent extends React.Component<any, any> {
                             </div>
                         </form>        
                     </section>
-                        {/* <div id="hero-overlay"></div> */}
+                        <div id="hero-overlay"></div>
                     </div>
                 </div>
             </div>

@@ -9,9 +9,9 @@ export class UpdateTransactionComponent extends React.Component<any,any> {
 
     render() {
         return(
-            <div>
+            <div id="manager-component-background">
                 <ManagerTabsComponent />
-                <h1>Transaction Information: Update Transaction Information</h1>
+                <h1 id="white-heading">Transaction Information: Update Transaction Information</h1>
                 <hr></hr>
                 <form>
                     <div className="form-row">
@@ -29,7 +29,7 @@ export class UpdateTransactionComponent extends React.Component<any,any> {
                     <div className="form-row">
                         <br></br>
                         <div className="form-group col-md-2">
-                            <label id="label">Search Transaction by User ID</label>
+                            <label className="white-label">Search Transaction by User ID</label>
                         </div>
                         <div className="form-group col-md-2">
                             <input type="number" />

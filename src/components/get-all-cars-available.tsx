@@ -8,9 +8,9 @@ export class GetAllCarsAvailableComponent extends React.Component<any,any> {
     }
     render() {
         return(
-            <div>
+            <div id="manager-component-background">
                <ManagerTabsComponent />
-                <h1>Car Information: View Available/Unavailable Cars</h1>
+                <h1 id="white-heading">Car Information: View Available/Unavailable Cars</h1>
                 <hr></hr>
                 <form>
                     <div className="form-row">
@@ -36,7 +36,7 @@ export class GetAllCarsAvailableComponent extends React.Component<any,any> {
                                 <option>Available</option>
                                 <option>Unavailable</option>
                             </select>
-                            <input type="submit" value="Search" />
+                            <button type="submit" value="Search" className="btn btn-dark">Submit</button>
                         </div>
                         <div className="form-group col-md-8">
                         <table className="table table-dark">

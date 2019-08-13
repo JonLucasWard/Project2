@@ -8,7 +8,8 @@ export class ManagerTabsComponent extends React.Component<any,any> {
 
     render() {
         return (
-            <ul className="nav nav-tabs">
+           
+            <ul id ="tab" className="nav nav-tabs">
             <li className="nav-item">
                 <Link to="/users" className="nav-link">User Information</Link>
             </li>
@@ -19,6 +20,8 @@ export class ManagerTabsComponent extends React.Component<any,any> {
                 <Link to="/transactions" className="nav-link">Transaction Information</Link>
             </li>
         </ul>
+        
+         
         )
     }
 }

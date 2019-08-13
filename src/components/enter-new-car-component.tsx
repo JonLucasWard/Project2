@@ -9,9 +9,9 @@ export class EnterNewCarComponent extends React.Component<any,any> {
 
     render() {
         return (
-            <div>
+            <div id="manager-component-background">
                 <ManagerTabsComponent />
-                <h1>Car Information: Enter New Car Information</h1>
+                <h1 id="white-heading">Car Information: Enter New Car Information</h1>
                 <hr></hr>
                 <div className="form-row">
                         <Link to="/get-all-cars-information">
@@ -28,21 +28,21 @@ export class EnterNewCarComponent extends React.Component<any,any> {
                 <form>
                     <div className="form-row">
                         <div className="form-group col-md-4">
-                            <label>Brand</label>
+                            <label className="white-label">Brand</label>
                             <input type="text" placeholder="Brand"></input>
                         </div>
                         <div className="form-group col-md-4">
-                            <label>Model</label>
+                            <label className="white-label">Model</label>
                             <input type="text" placeholder="Model"></input>
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-4">
-                            <label>Make Year</label>
+                            <label className="white-label">Make Year</label>
                             <input type="text" placeholder="Year"></input>
                         </div>
                         <div className="form-group col-md-4">
-                            <label>Occupancy</label>
+                            <label className="white-label">Occupancy</label>
                             <select>
                                 <option>4</option>
                                 <option>6</option>
@@ -52,24 +52,24 @@ export class EnterNewCarComponent extends React.Component<any,any> {
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-4">
-                            <label>Transmission</label>
+                            <label className="white-label">Transmission</label>
                             <select>
                                 <option>Automatic</option>
                                 <option>Transmission</option>
                             </select>
                         </div>
                         <div className="form-group col-md-4">
-                            <label>Mileage</label>
+                            <label className="white-label">Mileage</label>
                             <input type="text" placeholder="Mileage"></input>
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-4">
-                            <label>Color</label>
+                            <label className="white-label">Color</label>
                             <input type="text" placeholder="color"></input>
                         </div>
                         <div className="form-group col-md-4">
-                            <label>Air Conditioning</label>
+                            <label className="white-label">Air Conditioning</label>
                             <select>
                                 <option>Yes</option>
                                 <option>No</option>
@@ -78,14 +78,14 @@ export class EnterNewCarComponent extends React.Component<any,any> {
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-4">
-                            <label>Status</label>
+                            <label className="white-label">Status</label>
                             <select>
                                 <option>Available</option>
                                 <option>Unavilable</option>
                             </select>
                         </div>
                         <div className="form-group col-md-4">
-                            <label>Rental Rate</label>
+                            <label className="white-label">Rental Rate</label>
                             <input type="number" placeholder="Rate"></input>
                         </div>
                     </div>

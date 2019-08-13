@@ -1,6 +1,17 @@
 import React from 'react';
 import { ManagerTabsComponent } from './manager-tabs-component';
 import { Link } from 'react-router-dom';
+import { IState, IManageRentalState } from '../reducers/index';
+import * as rentalActions from '../actions/rental-actions';
+import { connect } from 'react-redux';
+import { MockRental, MockRental2 } from '../models/dummyData';
+
+export interface IRentalProps {
+    rental: IManageRentalState;
+    rentalsGetResolved: (rental: object) => void;
+    rentalsGetResolvedByUser: (id: number) => void;
+    rentalsUpdateRequest: (id: number) => void;
+}
 
 export class GetAllTransactionsComponent extends React.Component<any,any> {
     constructor(props: any) {
@@ -9,9 +20,9 @@ export class GetAllTransactionsComponent extends React.Component<any,any> {
 
     render() {
         return(
-            <div>
+            <div id="manager-component-background">
                 <ManagerTabsComponent />
-                <h1>Transaction Information: View All Transactions</h1>
+                <h1 id="white-heading">Transaction Information: View All Transactions</h1>
                 <hr></hr>
                     <div className="form-row">
                         <Link to="/get-all-transactions">
@@ -76,7 +87,19 @@ export class GetAllTransactionsComponent extends React.Component<any,any> {
                             </tr>
                             </tbody>        
                     </table>
+                    <button className="btn btn-dark" onClick={() => this.props.RENTALS_GET_RESOLVED({MockRental, MockRental2})}>Submit</button>
             </div>
         )
     }
 }
+const mapStateToProps = (state: IState) => ({
+    rental: state.rentalComponent
+});
+
+const mapDispatchToProps = {
+    RENTALS_GET_RESOLVED: rentalActions.rentalsGetResolved,
+    RENTALS_GET_RESOLVED_BY_USER: rentalActions.rentalsGetResolvedByUser,
+    RENTALS_UPDATE_REQUEST: rentalActions.rentalsUpdateRequest
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GetAllTransactionsComponent)

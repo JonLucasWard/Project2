@@ -6,6 +6,17 @@
 }
 .white-label {
   color: white;
+  font-size: 20px;
+}
+
+#manager-component-buttons {
+  border-radius: 100px;
+}
+hr {
+  color: white;
+}
+#white-heading {
+  color: white;
 }
 .center-button {
   text-align: center;
@@ -17,6 +28,8 @@
 
 .tabs-color {
   background-color: silver;
+  border-color: black;
+  border-style: solid;
 }
 
 select {
@@ -31,7 +44,7 @@ select {
   background-image: url('./assets/car-rental-search-img.png');
   background-size: cover;
   background-position: center center;
-  position: relative;
+  /* position: relative; */
   top: 0;
   bottom: 0;
   height: 100vh;
@@ -42,7 +55,7 @@ select {
 #hero-overlay {
   position: absolute;
   background-color: rgba(0,0,0,0.5);
-  top: 0;
+  top: 0; 
   bottom: 0;
   height: 100%;
   width: 100%;
@@ -55,4 +68,45 @@ select {
   padding: 16px;
   background-color: #333;
   opacity: 0.9;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.nav-tabs-center {
+  margin: auto;
+  color: gray !important;
+}
+
+#manager-component-background {
+  background-image: url('../src/assets/business-background.png');
+  background-size: cover;
+  background-position: center center;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  z-index: -10;
+  margin: 0;
+}
+
+.manager-component-background-overlay {
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -5;
+}
+
+.manager-form-container {
+  position: absolute;
+  margin: 20x;
+  padding: 16px;
+  background-color: #333;
+  opacity: 0.9;
+  background-color: rgba(0,0,0,0.5);
+}
+
+#tab {
+  font-size: 25px;
+  padding: 10px;
 }

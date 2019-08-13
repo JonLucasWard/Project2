@@ -1,19 +1,30 @@
 import React from 'react';
 import { ManagerTabsComponent } from './manager-tabs-component';
 import { Link } from 'react-router-dom';
+import { IState, IManagerUserState, state } from '../reducers/index';
+import * as userActions from '../actions/user-actions';
+import { connect } from 'react-redux';
+import { MockUser, MockUser2 } from '../models/dummyData';
 
-export class GetAllUsersComponents extends React.Component<any,any> {
+export interface IUserProps {
+    user: IManagerUserState;
+    usersGetResolved: (user: object) => void;
+    usersUpdateRequest: (id: number) => void;
+    userByIdResolved: (id: number) => void;
+}
+
+class GetAllUsersComponents extends React.Component<any,any> {
     constructor(props: any) {
         super(props);
     }
 
     render() {
         return (
-            <div>
+            <div id="manager-component-background">
                 <ManagerTabsComponent />
-                <h1>User Information: Get All Users</h1>
+                <h1 id="white-heading">User Information: Get All Users</h1>
                 <hr></hr>
-                <form>
+                <form className="container">
                     <div className="form-row">
                         <Link to="/get-all-users">
                             <button type="submit" className="btn btn-dark">Get all Users</button>    
@@ -76,8 +87,20 @@ export class GetAllUsersComponents extends React.Component<any,any> {
                             </tr>
                             </tbody>        
                     </table>
+                    <button type="submit" className="btn dark"onClick={() => this.props.USERS_GET_RESOLVED({MockUser, MockUser2})}>Submit</button>
                 </form>
             </div>
         )
     }
 }
+const mapStateToProps = (state: IState) => ({
+    user: state.userComponent
+});
+
+const mapDispatchToProps = {
+    USERS_GET_RESOLVED: userActions.usersGetResolved,
+    USERS_UPDATE_REQUEST: userActions.usersUpdateRequest,
+    USER_BY_ID_RESOLVED: userActions.userByIdResolved
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GetAllUsersComponents)

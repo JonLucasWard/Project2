@@ -27,9 +27,11 @@ handleTransactionSubmit() {
 render() {
     return (
         <div>
+            <div id="manager-component-background">
             <HashRouter>
             <ManagerTabsComponent />
             </HashRouter>
+            </div>
         </div>
     )
 }
