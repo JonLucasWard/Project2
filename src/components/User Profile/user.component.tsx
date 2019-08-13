@@ -2,6 +2,7 @@ import React from 'react';
 import { IState, IUserState } from '../../reducers';
 import { userGetResolved, userPageRequest, userUpdate, deleteRental } from '../../actions/user.actions';
 import { connect } from 'react-redux';
+
 import { ProfileComponent } from './profile.component';
 import { RentalListComponent } from './rentalList.component';
 import { Pagination } from 'reactstrap';
