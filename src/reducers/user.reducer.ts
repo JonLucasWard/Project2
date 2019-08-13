@@ -32,16 +32,7 @@ export const userReducer = (state = initialState, action: any) => {
                 ...state,
                 thisUser: action.payload.user//we are submitted changed info, then getting it back from the DB
             }
-        case userTypes.DELETE_RENTAL:
-            // axios talk to database to remove rental using action.payload.id //id of rental
-            // axios talk to database to get rentals list, assign it to a variable
-            let newRentals = state.rentals.filter(function (value) {
-                return value.id != action.payload.id;
-            })
-            return {
-                ...state,
-                rentals: newRentals //list should have changed
-            }
+
         default: break;
     }
     return state;
