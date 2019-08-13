@@ -18,8 +18,9 @@ those actions when called. This is the function our component will be able
 to use to call an action.
 */
 export const getRental = () => (dispatch: any) => {
+    console.log('You are in the actions!');
     dispatch({
         payload: {},
         type: searchTypes.SEARCH_UPDATE
-    })
+    });
 }

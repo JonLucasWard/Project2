@@ -9,6 +9,7 @@ import NavComponent from './components/nav.component';
 // ensure you importing that component with a default import (no {})
 import PokeComponent from './components/poke.component';
 import { SearchDisplayComponent } from './components/search-display-component';
+
 const App: React.FC = () => { // app is a function component because it just runs immediately, it is the store!
   return (
     <Provider store={store}>
