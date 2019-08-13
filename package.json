@@ -1,23 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "my-first-react-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@typescript-eslint/typescript-estree": "^1.13.0",
-    "axios": "^0.19.0",
-    "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
-    "popper.js": "^1.15.0",
-    "react": "^16.8.6",
-    "react-bootstrap": "^1.0.0-beta.9",
-    "react-dom": "^16.8.6",
-    "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
-    "tether": "^1.4.7",
-    "typescript": "^3.5.0"
-=======
   "name": "react-redux-example",
   "version": "0.1.0",
   "private": true,
@@ -49,16 +30,11 @@
     "redux-thunk": "^2.3.0",
     "tether": "^1.4.7",
     "typescript": "3.5.3"
->>>>>>> 1531ae7e661b9a7ff0af37a230f0e6cec38bae06
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-<<<<<<< HEAD
-    "test": "react-scripts test",
-=======
     "test": "react-scripts test --verbose",
->>>>>>> 1531ae7e661b9a7ff0af37a230f0e6cec38bae06
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -77,17 +53,8 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "@types/react-router": "^5.0.3",
-    "@types/react-router-dom": "^4.3.4",
-    "@types/jest": "24.0.15",
-    "@types/node": "12.6.8",
-    "@types/react": "16.8.23",
-    "@types/react-dom": "16.8.5"
-=======
     "@types/enzyme": "^3.10.3",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0"
->>>>>>> 1531ae7e661b9a7ff0af37a230f0e6cec38bae06
   }
 }
