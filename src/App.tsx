@@ -22,7 +22,6 @@ import { EnterNewCarComponent } from './components/enter-new-car-component';
 import GetAllTransactionsComponent from './components/get-all-transactions-component';
 import { GetTransactionsbyUserId } from './components/get-transactions-by-users';
 import { UpdateTransactionComponent } from './components/update-transactions-component';
-// import './App.scss';
 import { Provider } from 'react-redux';
 import { store } from './Store';
 import ClickerComponent from './components/clicker.component';
@@ -43,8 +42,6 @@ const App: React.FC = () => {
               <Route path="/clicker" component={ClickerComponent} />
               <Route path="/poke" component={PokeComponent} />
               <Route path="/user" component={UserComponent} /* Jonathan's User Profile */ />
-
-              <Route component={ClickerComponent} />
               <Route path="/home" />
               <Route path="/look-for-a-car" component={InputRentalFormComponent} />
               <Route path="/manager-actions" component={ManagerInputComponent} />
@@ -60,6 +57,7 @@ const App: React.FC = () => {
               <Route path="/get-all-transactions" component={GetAllTransactionsComponent} />
               <Route path="/get-transactions-by-user" component={GetTransactionsbyUserId} />
               <Route patth="/update-transaction" component={UpdateTransactionComponent} />
+              <Route component={InputRentalFormComponent} />
               {/* <Route component={ClickerComponent} /> */}
             </Switch>
           </Switch>

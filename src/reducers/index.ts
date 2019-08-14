@@ -7,6 +7,8 @@ import { pokeReducer } from "./poke.reducer";
 import { User, Rental, Car } from "../models/AppModels";
 import { user0Reducer } from "./user.reducer";
 import { userReducer } from "./user-reducer";
+import { getAllCarsReducer } from "./car-reducer";
+import { getAllRentalsReducer } from "./rental-reducer";
 
 export interface IUserState { // state of user profile component
     thisUser: User, //user's info
@@ -17,9 +19,6 @@ export interface IUserState { // state of user profile component
 //general rental search state... list of current 10 available rentals and page the user is on???
 //managers should have something similar to user, except their state will include data of the current user
 //they are editing, basically inheriting a new IUserState but for their target. A list of users. And a list of all rentals
-import { getAllCarsReducer } from "./car-reducer";
-import { getAllRentalsReducer } from "./rental-reducer";
-
 
 export interface IManageCarState {
     cars: Car[],

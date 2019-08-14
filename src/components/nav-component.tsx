@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { tsConstructorType } from '@babel/types';
 import { IClickerState, IState } from '../reducers';
@@ -13,7 +13,7 @@ const NavComponent: React.FC = () => {
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <Link to="/home" className="navbar-brand">Car Rental System</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
+                    <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
@@ -24,7 +24,7 @@ const NavComponent: React.FC = () => {
                             <Link to="/look-for-a-car" className="nav-link">Rent a Car</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/manager-actions"className="nav-link" href="#">Manager Actions</Link>
+                            <Link to="/manager-actions" className="nav-link" href="#">Manager Actions</Link>
                         </li>
                         <li className="nav-item active" /* clicker is state is displayed here*/>
                             <Link to="/clicker" className="unset-anchor nav-link">Clicker</Link>
