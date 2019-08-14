@@ -35,6 +35,8 @@ export class NavComponent extends React.PureComponent<INaveProps> {
                             <div className="dropdown-menu" aria-labelledby="examples-dropdown">
                                 <div className="dropdown-item"><Link to="/clicker" className="unset-anchor nav-link active">Clicker Game</Link></div>
                                 <div className="dropdown-item"><Link to="/poke" className="unset-anchor nav-link active">Poke Finder</Link></div>
+
+                                <div className="dropdown-item"><Link to="/user" className="unset-anchor nav-link active">User Profile</Link></div>
                             </div>
                         </li>
                     </ul>
