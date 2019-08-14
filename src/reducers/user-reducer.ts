@@ -17,7 +17,7 @@ export const userReducer = (state = initialState, action: any) => {
         case usersTypes.USER_BY_ID_RESOLVED:
             return {
                 ...state,
-                user: action.payload.id
+                users: [MockUser]
             }
         case usersTypes.USERS_UPDATE_REQUEST:
             return {

@@ -24,7 +24,7 @@ class GetAllUsersComponents extends React.Component<any,any> {
                 <ManagerTabsComponent />
                 <h1 id="white-heading">User Information: Get All Users</h1>
                 <hr></hr>
-                <form className="container">
+                <form>
                     <div className="form-row">
                         <Link to="/get-all-users">
                             <button type="submit" className="btn btn-dark">Get all Users</button>    
