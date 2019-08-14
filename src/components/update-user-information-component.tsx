@@ -4,26 +4,29 @@ import { ManagerTabsComponent } from './manager-tabs-component';
 import Axios from 'axios';
 import { User } from '../models/AppModels';
 import { MockUser } from '../models/dummyData';
+import { IState, IManagerUserState } from '../reducers/index';
+import * as userActions from '../actions/user-actions';
+import { connect } from 'react-redux';
 
-interface IUpdateUserProps {
+export interface IUpdateUserProps {
     user: User;
     submitting: any;
 }
 
-export class UpdateUserInformationComponent extends React.Component<any,any> {
+class UpdateUserInformationComponent extends React.Component<any,any> {
     constructor(props: any) {
         super(props);
-        this.state = {
-            id: this.props.user.id,
-            username: this.props.user.username,
-            password: this.props.user.password,
-            firstname: this.props.user.firstname,
-            lastname: this.props.user.lastname,
-            email: this.props.user.email,
-            phone: this.props.user.phone,
-            driversLicenseno: this.props.user.driverslicenseno,
-            roleid: this.props.user.roleid
-        }
+        // this.state = {
+        //     userid: this.props.user.id,
+        //     username: this.props.user.username,
+        //     password: this.props.user.password,
+        //     firstname: this.props.user.firstname,
+        //     lastname: this.props.user.lastname,
+        //     email: this.props.user.email,
+        //     phone: this.props.user.phone,
+        //     driverslicenseno: this.props.user.driverslicenseno,
+        //     roleid: this.props
+        // }
     }
 
     handleInputChange(event: any)  {
@@ -32,7 +35,7 @@ export class UpdateUserInformationComponent extends React.Component<any,any> {
         this.setState({
             ...this.state,
             [field]: value
-        })
+        });
     }
 
     submitChange = () => {
@@ -49,7 +52,7 @@ export class UpdateUserInformationComponent extends React.Component<any,any> {
                 <form>
                     <div className="form-row">
                         <Link to="/get-all-users">
-                            <button type="submit" className="btn btn-dark" onChange={(event) => this.handleInputChange(event)}>Get all Users</button>    
+                            <button type="submit" className="btn btn-dark">Get all Users</button>    
                         </Link>
                         <Link to="/get-user-by-id">
                             <button type="submit" className="btn btn-dark">Get User by ID</button>
@@ -66,8 +69,8 @@ export class UpdateUserInformationComponent extends React.Component<any,any> {
                             <label className="white-label">Search User by Id</label>
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="number" />
-                            <button className="btn btn-dark">Submit</button>
+                            <input type="number" onChange={(event: any) => this.handleInputChange(event)} />
+                            <button type="submit" className="btn btn-dark" onClick={() => {this.props.USER_BY_ID_RESOLVED(MockUser)}}>Submit</button>
                         </div>
                         <div className="form-group col-md-8">
                         <table className="table table-dark">
@@ -100,43 +103,55 @@ export class UpdateUserInformationComponent extends React.Component<any,any> {
                         </table>
                         </div>
                     </div>
-                    <h1>Update Information</h1>
+                    <h1 className="white-label">Update Information</h1>
                     <div className="form-row">
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.id} onChange={(event) => this.handleInputChange(event)} placeholder="User ID"/>
+                            <input type="text" onChange={(event) => this.handleInputChange(event)} placeholder="User ID"/>
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.username} onChange={(event) => this.handleInputChange(event)} placeholder="Username"/>
+                            <input type="text" onChange={(event) => this.handleInputChange(event)} placeholder="Username"/>
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.password} onChange={(event) => this.handleInputChange(event)} placeholder="Password"/>
+                            <input type="text"  onChange={(event) => this.handleInputChange(event)} placeholder="Password"/>
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.firstname} onChange={(event) => this.handleInputChange(event)} placeholder="First Name"/>
+                            <input type="text"  onChange={(event) => this.handleInputChange(event)} placeholder="First Name"/>
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.lastname} onChange={(event) => this.handleInputChange(event)} placeholder="Last Name"/>
+                            <input type="text" onChange={(event) => this.handleInputChange(event)} placeholder="Last Name"/>
                         </div>
                     </div>
                     <div className="form-row">
                     <div className="form-group col-md-2">
-                            <input type="text" value={this.state.email} onChange={(event) => this.handleInputChange(event)} placeholder="Email"/>
+                            <input type="text"  onChange={(event) => this.handleInputChange(event)} placeholder="Email"/>
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.phone} onChange={(event) => this.handleInputChange(event)} placeholder="Phone Number"/>
+                            <input type="text" onChange={(event) => this.handleInputChange(event)} placeholder="Phone Number"/>
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.driversLicenseno} onChange={(event) => this.handleInputChange(event)} placeholder="Drivers License Number"/>
+                            <input type="text" onChange={(event) => this.handleInputChange(event)} placeholder="Drivers License Number"/>
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.roleid} onChange={(event) => this.handleInputChange(event)} placeholder="Role"/>
+                            <input type="text" onChange={(event) => this.handleInputChange(event)} placeholder="Role"/>
                         </div>
                     </div>
                     <div className="form-row">
-                        <button type="submit"  onClick={() => this.props.USERS_UPDATE_REQUEST([MockUser])} />
+                        <button type="submit"className="btn btn-dark" onClick={() => this.props.USERS_UPDATE_REQUEST([MockUser.id])}>Submit</button>
                     </div>
                 </form>
             </div>
         )
     }
 }
+
+const mapStateToProps = (state: IState) => ({
+    user: state.userComponent
+});
+
+const MapDispatchToProps = {
+    USERS_GET_RESOLVED: userActions.usersGetResolved,
+    USERS_UPDATE_REQUEST: userActions.usersUpdateRequest,
+    USER_BY_ID_RESOLVED: userActions.userByIdResolved
+}
+
+export default connect(mapStateToProps, MapDispatchToProps)(UpdateUserInformationComponent)

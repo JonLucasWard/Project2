@@ -16,10 +16,10 @@ export const rentalsGetResolved =
         }
 
 export const rentalsGetResolvedByUser = 
-        (userid: number) => 
+        (id: number) => 
             (dispatch: any) => {
                 dispatch({
-                    payload: userid,
+                    payload: id,
                     type: rentalTypes.RENTALS_GET_RESOLVED_BY_USER
                 });
             }

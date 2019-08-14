@@ -25,7 +25,7 @@ export class GetUserByIdComponent extends React.Component<any,any> {
             email: "",
             phone: "",
             driverslicenseno: "",
-            roleid: ""
+            roleid: 0
         }
     }
 
@@ -39,7 +39,6 @@ export class GetUserByIdComponent extends React.Component<any,any> {
 
     handleSubmit() {
         alert("Retrieving all users");
-
     }
     render() {
         return(

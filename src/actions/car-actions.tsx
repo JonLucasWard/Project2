@@ -22,9 +22,7 @@ export const viewAvailableCar =
         (statusid:number) =>
             (dispatch: any) => {
                 dispatch({
-                    payload: {
-                        statusid
-                    },
+                    payload: statusid,
                     type: carsTypes.VIEW_AVAILABLE_CAR
                 })
             }

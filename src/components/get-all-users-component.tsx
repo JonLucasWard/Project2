@@ -87,7 +87,7 @@ class GetAllUsersComponents extends React.Component<any,any> {
                             </tr>
                             </tbody>        
                     </table>
-                    <button type="submit" className="btn dark"onClick={() => this.props.USERS_GET_RESOLVED({MockUser, MockUser2})}>Submit</button>
+                    <button type="submit" className="btn btn-dark"onClick={() => this.props.USERS_GET_RESOLVED({MockUser, MockUser2})}>Submit</button>
                 </form>
             </div>
         )

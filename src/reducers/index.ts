@@ -6,7 +6,7 @@ import { getAllCarsReducer } from "./car-reducer";
 import { User } from '../models/AppModels';
 import { userReducer } from "./user-reducer";
 import { Rental } from '../models/AppModels';
-import { getAllRentalsReducer } from "./rental-reducer";
+import { rentalReducer } from "./rental-reducer";
 
 
 export interface IManageCarState {
@@ -50,5 +50,5 @@ export const state = combineReducers<IState>({
     poke: pokeReducer,
     carComponent: getAllCarsReducer,
     userComponent: userReducer,
-    rentalComponent: getAllRentalsReducer
+    rentalComponent: rentalReducer
 })

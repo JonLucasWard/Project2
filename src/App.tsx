@@ -15,12 +15,12 @@ import 'mdbreact/dist/css/mdb.css';
 import { UserInformationComponent } from './components/user-information-component';
 import    GetAllUsersComponents  from './components/get-all-users-component';
 import  GetUserByIdComponent  from './components/get-user-by-id-component';
-import { UpdateUserInformationComponent } from './components/update-user-information-component';
+import  UpdateUserInformationComponent  from './components/update-user-information-component';
 import  GetAllCarsComponents  from './components/get--all-cars-component';
-import { GetAllCarsAvailableComponent } from './components/get-all-cars-available';
+import  GetAllCarsAvailableComponent  from './components/get-all-cars-available';
 import { EnterNewCarComponent } from './components/enter-new-car-component';
 import  GetAllTransactionsComponent  from './components/get-all-transactions-component';
-import { GetTransactionsbyUserId } from './components/get-transactions-by-users';
+import  { GetTransactionsbyUserId }   from './components/get-transactions-by-users';
 import { UpdateTransactionComponent } from './components/update-transactions-component';
 // import './App.scss';
 import { Provider } from 'react-redux';
@@ -37,7 +37,6 @@ const App: React.FC = () => {
       <Provider store={store}>
       <HashRouter>
         <NavComponent />
-        <Switch>
         <Switch /* switch different routes based on routers, clicking a component opens new route*/>
           <Route path="/clicker" component={ClickerComponent} />
           <Route path="/poke" component={PokeComponent} />
@@ -57,7 +56,6 @@ const App: React.FC = () => {
           <Route path="/get-transactions-by-user" component={GetTransactionsbyUserId} />  
           <Route patth="/update-transaction" component={UpdateTransactionComponent} /> 
           {/* <Route component={ClickerComponent} /> */}
-        </Switch>
         </Switch>
       </HashRouter>
       </Provider>

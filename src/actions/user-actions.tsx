@@ -14,6 +14,7 @@ export const usersGetResolved =
                 payload: { user },
                 type: usersTypes.USERS_GET_RESOLVED
             });
+            alert("Getting Users!");
         }
 
 export const usersUpdateRequest = 

@@ -1,11 +1,52 @@
 import React from 'react';
 import { ManagerTabsComponent } from './manager-tabs-component';
 import { Link } from 'react-router-dom';
+import { IState, IManageCarState } from '../reducers/index';
+import * as carActions from '../actions/car-actions';
+import { connect } from 'react-redux';
+import { MockCar, MockCar2 } from '../models/dummyData';
 
-export class GetAllCarsAvailableComponent extends React.Component<any,any> {
+export interface ICarByStatusProps {
+    car: IManageCarState;
+    carsPageRequest: (page: number) => void;
+    carsGetResolved: (car:object) => void;
+    carsUpdateRequest: (id:number) => void;
+    deleteCars: (id: number) => void;
+    enterNewCar: (car: object) => void;
+    viewAvailableCar: (status: number) => void;
+}
+
+class GetAllCarsAvailableComponent extends React.Component<any,any> {
     constructor(props: any) {
         super(props);
+        this.state = {
+            carid: 0,
+            brand: "",
+            model: "",
+            makeyear: "",
+            occupancy: "",
+            transmission: "",
+            mileage: 0,
+            color: "",
+            ac: true,
+            statusid: 0,
+            rate: 0,
+            typeid: 0
+        }
     }
+
+    handleChange(event: any) {
+        const value = event.target.value;
+        this.setState({
+            ...this.state,
+            statusid: value
+        });
+    }
+
+    handleSubmit() {
+        alert("Retrieving all cars by user ID");
+    }
+
     render() {
         return(
             <div id="manager-component-background">
@@ -32,11 +73,11 @@ export class GetAllCarsAvailableComponent extends React.Component<any,any> {
                             <label id="label">Search Availability</label>
                         </div>
                         <div className="form-group col-md-2">
-                            <select>
-                                <option>Available</option>
-                                <option>Unavailable</option>
+                            <select onChange={(event:any) => this.handleChange(event)}>
+                                <option value="1">Available</option>
+                                <option value="2">Unavailable</option>
                             </select>
-                            <button type="submit" value="Search" className="btn btn-dark">Submit</button>
+                            <button type="submit" value="Search" className="btn btn-dark" onClick={() => this.props.VIEW_AVAILABLE_CAR({MockCar})}>Submit</button>
                         </div>
                         <div className="form-group col-md-8">
                         <table className="table table-dark">
@@ -96,3 +137,14 @@ export class GetAllCarsAvailableComponent extends React.Component<any,any> {
         )
     }
 }
+const mapStateToProps = (state: IState) => ({
+    car: state.carComponent
+});
+
+const mapDispatchToProps = {
+    CARS_GET_RESOLVED: carActions.carsGetResolved,
+    CARS_UPDATE_REQUEST: carActions.carsUpdateRequest,
+    VIEW_AVAILABLE_CAR: carActions.viewAvailableCar
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GetAllCarsAvailableComponent)
