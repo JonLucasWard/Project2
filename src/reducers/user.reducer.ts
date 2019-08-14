@@ -14,7 +14,7 @@ const initialState: IUserState = {
  and if it needs to, it will return a new state if the action requires it. If not, we will return 
  the current state. Usually, we will switch on an action, and capture the various actions
  that we need to handle */
-export const userReducer = (state = initialState, action: any) => {
+export const user0Reducer = (state = initialState, action: any) => {
     switch (action.type) {
         case userTypes.USER_GET_RESOLVED:
             return {
