@@ -1,51 +1,67 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ManagerTabsComponent } from './manager-tabs-component';
-import { IState, IManageRentalState, state } from '../reducers/index';
-import * as rentalActions from '../actions/rental-actions';
-import { connect } from 'net';
-import { MockRental } from '../models/dummyData';
-import { string } from 'prop-types';
+import { IState, GetRentalByUserState, state } from '../reducers/index';
+import { getRentalsByUserInputUpdate, getRentalsByUserSubmitRequest, getRentalsByUserSearchResolved} from '../actions/rental-actions/get-rentals-by-user-actions';
+import { connect } from 'react-redux';
+import Axios from 'axios';
+import { getAllRentalsSearchResolved } from '../actions/rental-actions/get-all-rentals-actions';
 
-export interface IRentalPropsByUser {
-    rental: IManageRentalState;
-    rentalsGetResolved: (rental: object) => void;
-    rentalsGetResolvedByUser: (id: number) => void;
-    rentalsUpdateRequest: (id: number) => void;
+export interface GetRentalByUserProps {
+    rentalByUser: GetRentalByUserState;
+    getRentalByUserInputUpdate: (inputValue: number) => void;
+    getRentalByUserSubmitRequest: () => void;
+    getRentalByUserSearchResolved: (
+        transactionid: number,
+        userid: number,
+        carid: number,
+        daterented: string,
+        expectedreturn: string,
+        description: string,
+        approved: boolean
+    ) => void;
 }
 
 export class GetTransactionsbyUserId extends React.Component<any,any> {
     constructor(props: any) {
         super(props);
-        this.state = {
-            id: 0,
-            userid: 0,
-            carid: 0,
-            daterented: "",
-            expectedreturn: "",
-            description: "",
-            appoved: true
-        }
     }
     
-    handleChange(event: any) {
-        const value = event.target.value;
-        this.setState({
-            ...this.state,
-            id: value
-        });
-    }
+   handleInputChange(event: any) {
+       console.log('input checking');
+       const value = event.target.value;
+       this.props.getRentalByUserInputUpdate(value);
+   }
 
-    handleSubmit() {
-        alert("Retrieving rentals by id");
-    }
+   handleSubmit() {
+       console.log('submit checked');
+       const url = 'https://localhost: 8080/teame/rentals/users.query';
+       this.props.getRentalByUserSubmitRequest();
+       Axios.get(url).then(payload => {
+           const transactionid = payload.data.transactionid;
+           const userid = payload.data.userid;
+           const carid = payload.data.carid;
+           const daterented = payload.data.daterented;
+           const expectedreturn = payload.data.expectedreturn;
+           const description = payload.data.description;
+           const approved = payload.data.approved;
 
+           this.props.getRentalByUserSearchResolved(
+               transactionid, userid, carid, daterented, expectedreturn, description, approved
+           )
+       })
+   }
     render() {
         return(
             <div id="manager-component-background">
-                <ManagerTabsComponent />
-                <h1 id="white-heading">Transaction Information: View Transactions by Users</h1>
-                <hr></hr>
+                <div className="form-row">
+                    <div className="form-group col-md-12">
+                        <ManagerTabsComponent />
+                    </div>
+                </div>
+                <div className="form-row">
+                        <h1 id="white-heading">Transaction Information: View Transactions by Users</h1>
+                </div>
                     <div className="form-row">
                         <Link to="/get-all-transactions">
                             <button type="submit" className="btn btn-dark">Get All Transaction Information</button>
@@ -66,8 +82,8 @@ export class GetTransactionsbyUserId extends React.Component<any,any> {
                             <label className="white-label">Search Transaction by User ID</label>
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="number" value={this.state.id} onChange={(event: any) => this.handleChange(event)} />
-                            <button type="submit" className="btn btn-dark" onClick={() => this.props.RENTALS_GET_RESOLVED_BY_USER({MockRental})}>submit</button>
+                            <input type="number" onChange={(event) => this.handleInputChange(event)}/>
+                            <button type="submit" className="btn btn-dark" onClick={() => this.handleSubmit()}>Submit</button>
                         </div>
                         <div className="form-group col-md-8">
                         <table className="table table-dark">
@@ -107,14 +123,14 @@ export class GetTransactionsbyUserId extends React.Component<any,any> {
         )
     }
 }
-// const mapStateToProps = (state: IState) => ({
-//     rental: state.rentalComponent
-// });
+const mapStateToProps = (state: IState) => ({
+    rentalByUser: state.getRentalByUser
+});
 
-// const mapDispatchToProps = {
-//     RENTALS_GET_RESOLVED: rentalActions.rentalsGetResolved,
-//     RENTALS_GET_RESOLVED_BY_USER: rentalActions.rentalsGetResolvedByUser,
-//     RENTALS_UPDATE_REQUEST: rentalActions.rentalsUpdateRequest
-// }
+const mapDispatchToProps = {
+    getRentalByUserInputUpdate: getRentalsByUserInputUpdate,
+    getRentalByUserSubmitRequest: getRentalsByUserSubmitRequest,
+    getRentalByUserSearchResolved: getAllRentalsSearchResolved
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(GetTransactionsbyUserId)
+export default connect(mapStateToProps, mapDispatchToProps)(GetTransactionsbyUserId)

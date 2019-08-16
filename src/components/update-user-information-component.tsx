@@ -7,48 +7,30 @@ import { MockUser } from '../models/dummyData';
 import { IState, IManagerUserState } from '../reducers/index';
 import * as userActions from '../actions/user-actions';
 import { connect } from 'react-redux';
+import { directive } from '@babel/types';
 
 export interface IUpdateUserProps {
     user: User;
     submitting: any;
 }
 
-class UpdateUserInformationComponent extends React.Component<any,any> {
+export class UpdateUserInformationComponent extends React.Component<any,any> {
     constructor(props: any) {
         super(props);
-        // this.state = {
-        //     userid: this.props.user.id,
-        //     username: this.props.user.username,
-        //     password: this.props.user.password,
-        //     firstname: this.props.user.firstname,
-        //     lastname: this.props.user.lastname,
-        //     email: this.props.user.email,
-        //     phone: this.props.user.phone,
-        //     driverslicenseno: this.props.user.driverslicenseno,
-        //     roleid: this.props
-        // }
-    }
-
-    handleInputChange(event: any)  {
-        const value = event.target.value;
-        const field = event.target.id;
-        this.setState({
-            ...this.state,
-            [field]: value
-        });
-    }
-
-    submitChange = () => {
-        let obj = this.state;
-        this.props.submitting(obj);
     }
 
     render() {
         return (
             <div id="manager-component-background">
-                <ManagerTabsComponent />
-                <h1 id="white-heading">User Information: Update User Information</h1>
-                <hr></hr>
+                <div className="form-row">
+                    <div className="form-group col-md-12">
+                        <ManagerTabsComponent />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <h1 id="white-heading">User Information: Update User Information</h1>
+                    <hr></hr>
+                </div>
                 <form>
                     <div className="form-row">
                         <Link to="/get-all-users">
@@ -69,8 +51,8 @@ class UpdateUserInformationComponent extends React.Component<any,any> {
                             <label className="white-label">Search User by Id</label>
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="number" onChange={(event: any) => this.handleInputChange(event)} />
-                            <button type="submit" className="btn btn-dark" onClick={() => {this.props.USER_BY_ID_RESOLVED(MockUser)}}>Submit</button>
+                            <input type="number" />
+                            <button type="submit" className="btn btn-dark">Submit</button>
                         </div>
                         <div className="form-group col-md-8">
                         <table className="table table-dark">
@@ -104,54 +86,50 @@ class UpdateUserInformationComponent extends React.Component<any,any> {
                         </div>
                     </div>
                     <h1 className="white-label">Update Information</h1>
+                    
                     <div className="form-row">
-                        <div className="form-group col-md-2">
-                            <input type="text" onChange={(event) => this.handleInputChange(event)} placeholder="User ID"/>
+                        <div className="form-group col-md-3">
+                            <input type="text" placeholder="User ID"/>
                         </div>
-                        <div className="form-group col-md-2">
-                            <input type="text" onChange={(event) => this.handleInputChange(event)} placeholder="Username"/>
+                        <div className="form-group col-md-3">
+                            <input type="text" placeholder="First Name"/>
                         </div>
-                        <div className="form-group col-md-2">
-                            <input type="text"  onChange={(event) => this.handleInputChange(event)} placeholder="Password"/>
+                        <div className="form-group col-md-3">
+                            <input type="text" placeholder="Role"/>
+                        </div> 
+                    </div>
+
+                    <div className="form-row">
+                        <div className="form-group col-md-3">                 
+                            <input type="text" placeholder="Username"/>
                         </div>
-                        <div className="form-group col-md-2">
-                            <input type="text"  onChange={(event) => this.handleInputChange(event)} placeholder="First Name"/>
-                        </div>
-                        <div className="form-group col-md-2">
-                            <input type="text" onChange={(event) => this.handleInputChange(event)} placeholder="Last Name"/>
+                        <div className="form-group col-md-3">
+                            <input type="text" placeholder="Last Name"/>
+                       </div>
+                       <div className="form-group col-md-3">
+                            <input type="text" placeholder="Phone Number"></input>
                         </div>
                     </div>
+
                     <div className="form-row">
-                    <div className="form-group col-md-2">
-                            <input type="text"  onChange={(event) => this.handleInputChange(event)} placeholder="Email"/>
+                        <div className="form-group col-md-3">
+                            <input type="text" placeholder="Password"/>
+                        </div>  
+                        <div className="form-group col-md-3">
+                            <input type="text" placeholder="Email"/>
                         </div>
-                        <div className="form-group col-md-2">
-                            <input type="text" onChange={(event) => this.handleInputChange(event)} placeholder="Phone Number"/>
-                        </div>
-                        <div className="form-group col-md-2">
-                            <input type="text" onChange={(event) => this.handleInputChange(event)} placeholder="Drivers License Number"/>
-                        </div>
-                        <div className="form-group col-md-2">
-                            <input type="text" onChange={(event) => this.handleInputChange(event)} placeholder="Role"/>
+                        <div className="form-group col-md-3">
+                            <input type="text" placeholder="Drivers License Number"/>
                         </div>
                     </div>
+
                     <div className="form-row">
-                        <button type="submit"className="btn btn-dark" onClick={() => this.props.USERS_UPDATE_REQUEST([MockUser.id])}>Submit</button>
+                        <div className="form-group col-md-12">
+                            <button type="submit"className="btn btn-dark">Submit</button>
+                        </div>
                     </div>
                 </form>
             </div>
         )
     }
 }
-
-const mapStateToProps = (state: IState) => ({
-    user: state.userComponent
-});
-
-const MapDispatchToProps = {
-    USERS_GET_RESOLVED: userActions.usersGetResolved,
-    USERS_UPDATE_REQUEST: userActions.usersUpdateRequest,
-    USER_BY_ID_RESOLVED: userActions.userByIdResolved
-}
-
-export default connect(mapStateToProps, MapDispatchToProps)(UpdateUserInformationComponent)

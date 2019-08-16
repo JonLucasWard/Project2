@@ -1,58 +1,90 @@
 import React from 'react';
 import { ManagerTabsComponent } from './manager-tabs-component';
 import { Link } from 'react-router-dom';
-import { IState, IManageCarState } from '../reducers/index';
-import * as carActions from '../actions/car-actions';
+import { IState, GetAllAvailableCarsState } from '../reducers/index';
+import { getAvailableCarsInputUpdate, getAvailableCarsSubmitRequest, getAvailableCarsSearchResolved } from '../actions/car-actions/get-available-cars-action';
 import { connect } from 'react-redux';
-import { MockCar, MockCar2 } from '../models/dummyData';
+import Axios from 'axios';
 
-export interface ICarByStatusProps {
-    car: IManageCarState;
-    carsPageRequest: (page: number) => void;
-    carsGetResolved: (car:object) => void;
-    carsUpdateRequest: (id:number) => void;
-    deleteCars: (id: number) => void;
-    enterNewCar: (car: object) => void;
-    viewAvailableCar: (status: number) => void;
+export interface GetAllCarsAvailableProps {
+    availableCars: GetAllAvailableCarsState;
+    getAvailableCarsInputUpdate: (inputValue: number) => void;
+    getAvailableCarsSubmitRequest: () => void;
+    getAvailableCarsSearchResolved: (
+        carid: number,
+        brand: string,
+        model: string,
+        makeYear: string,
+        occupancy: number,
+        transmission: string,
+        mileage: number,
+        color: string,
+        ac: boolean,
+        statusid: number,
+        rate: number,
+        typeid: number,
+        availableCars: {}
+    ) => void;
+    
 }
 
 class GetAllCarsAvailableComponent extends React.Component<any,any> {
     constructor(props: any) {
         super(props);
-        this.state = {
-            carid: 0,
-            brand: "",
-            model: "",
-            makeyear: "",
-            occupancy: "",
-            transmission: "",
-            mileage: 0,
-            color: "",
-            ac: true,
-            statusid: 0,
-            rate: 0,
-            typeid: 0
-        }
     }
 
-    handleChange(event: any) {
+    handleInputChange(event:any) {
+        console.log('input checking for available cars');
         const value = event.target.value;
-        this.setState({
-            ...this.state,
-            statusid: value
-        });
+        this.props.getAvaiableCarsInputUpdate(value);
     }
-
     handleSubmit() {
-        alert("Retrieving all cars by user ID");
+        console.log('submit clicked for available cars');
+        const url = `https://localhost:8080/teame/cars/${this.props.getAvailableCarsInputUpdate}`;
+        this.props.getAvailableCarsSubmitRequest();
+        Axios.get(url).then(payload => {
+            const carid = payload.data.carid;
+            const brand = payload.data.brand;
+            const model = payload.data.model;
+            const makeyear = payload.data.makeyear;
+            const occupancy = payload.data.occupancy;
+            const transmission = payload.data.transmission;
+            const mileage = payload.data.transmission;
+            const color = payload.data.color;
+            const ac = payload.data.ac;
+            const statusid = payload.data.inputValue;
+            const rate = payload.data.rate;
+            const typeid = payload.data.typeid;
+
+            this.props.getAvailableCarsSearchResolved(
+                carid, 
+                brand, 
+                model, 
+                makeyear, 
+                occupancy, 
+                transmission,
+                mileage,
+                color,
+                ac,
+                statusid,
+                rate,
+                typeid
+            );
+        })
     }
 
     render() {
         return(
             <div id="manager-component-background">
-               <ManagerTabsComponent />
-                <h1 id="white-heading">Car Information: View Available/Unavailable Cars</h1>
-                <hr></hr>
+                <div className="form-row">
+                    <div className="form-group col-md-12">
+                        <ManagerTabsComponent />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <h1 id="white-heading">Car Information: View Available/Unavailable Cars</h1>
+                    <hr></hr>
+                </div>
                 <form>
                     <div className="form-row">
                         <Link to="/get-all-cars-information">
@@ -70,14 +102,14 @@ class GetAllCarsAvailableComponent extends React.Component<any,any> {
                     <div className="form-row">
                         <br></br>
                         <div className="form-group col-md-2">
-                            <label id="label">Search Availability</label>
+                            <label className="white-label">Search Availability</label>
                         </div>
                         <div className="form-group col-md-2">
-                            <select onChange={(event:any) => this.handleChange(event)}>
+                            <select onChange={(event) => this.handleInputChange(event)}>
                                 <option value="1">Available</option>
                                 <option value="2">Unavailable</option>
                             </select>
-                            <button type="submit" value="Search" className="btn btn-dark" onClick={() => this.props.VIEW_AVAILABLE_CAR({MockCar})}>Submit</button>
+                            <button type="submit" value="Search" className="btn btn-dark" onClick={() => this.handleSubmit()}>Submit</button>
                         </div>
                         <div className="form-group col-md-8">
                         <table className="table table-dark">
@@ -137,14 +169,15 @@ class GetAllCarsAvailableComponent extends React.Component<any,any> {
         )
     }
 }
+
 const mapStateToProps = (state: IState) => ({
-    car: state.carComponent
+    getAllAvailableCars: state.getAllAvailableCars
 });
 
 const mapDispatchToProps = {
-    CARS_GET_RESOLVED: carActions.carsGetResolved,
-    CARS_UPDATE_REQUEST: carActions.carsUpdateRequest,
-    VIEW_AVAILABLE_CAR: carActions.viewAvailableCar
-}
+    getAvailableCarsInputUpdate: getAvailableCarsInputUpdate,
+    getAvailableCarsSubmitRequest: getAvailableCarsSubmitRequest,
+    getAvailableCarsSearchResolved: getAvailableCarsSearchResolved
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(GetAllCarsAvailableComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(GetAllCarsAvailableComponent);

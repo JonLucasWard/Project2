@@ -24,6 +24,7 @@ export const usersUpdateRequest =
                 payload: { user },
                 type: usersTypes.USERS_UPDATE_REQUEST
             });
+            alert(`Updated User: ${user.id}`)
         }
 
 export const userByIdResolved = 
@@ -33,5 +34,6 @@ export const userByIdResolved =
                     payload: id,
                     type: usersTypes.USER_BY_ID_RESOLVED
                 });
+                alert(`Retrieved User with ID number of ${id}`)
             }
 

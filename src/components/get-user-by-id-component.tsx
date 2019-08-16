@@ -1,72 +1,93 @@
 import React from 'react';
 import  { Link } from 'react-router-dom';
 import { ManagerTabsComponent } from './manager-tabs-component';
-import { IState, IManagerUserState } from '../reducers/index';
-import * as userActions from '../actions/user-actions';
+import { IState, GetUserState } from '../reducers';
+import { getUserInputUpdate, getUserSubmitRequest, getUserSearchResolved } from '../actions/user-actions/get-user-by-id-actions';
 import { connect } from 'react-redux';
-import { MockUser, MockUser2 } from '../models/dummyData'; 
+import Axios from 'axios';
 
-export interface IUserByIdProps {
-    user: IManagerUserState;
-    usersGetResolved: (user: object) => void;
-    usersUpdateRequest: (id: number) => void;
-    userByIdResolved: (id: number) => void;
+export interface GetUserProps {
+    user: GetUserState;
+    getUserInputUpdate: (inputValue: number) => void;
+    getUserSubmitRequest: () => void;
+    getUserSearchResolved: (
+        userid: number, 
+        driverlicense: string, 
+        email: string, 
+        firstname: string, 
+        lastname: string, 
+        password: string, 
+        phonenumber: string, 
+        role: number, 
+        username: string
+        ) => void;
 }
 
 export class GetUserByIdComponent extends React.Component<any,any> {
     constructor(props: any) {
         super(props);
-        this.state = {
-            userid: 0,
-            username: "",
-            password: "",
-            firstname: "",
-            lastname: "",
-            email: "",
-            phone: "",
-            driverslicenseno: "",
-            roleid: 0
-        }
     }
 
-    handleChange(event: any) {
+    handleInputChange(event: any) {
+        console.log('input checking');
         const value = event.target.value;
-        this.setState({
-            ...this.state,
-            userid: value
-        });
+        this.props.getUserInputUpdate(value);
     }
 
     handleSubmit() {
-        alert("Retrieving all users");
+        console.log('submit clicked');
+        const url = `https://localhost:8080/teame/users/${this.props.getUserInputUpdate}`;
+        this.props.getUserSubmitRequest();
+        Axios.get(url).then(payload => {
+            const userid = payload.data.userid;
+            const driverlicense = payload.data.driverlicense;
+            const email = payload.data.email;
+            const firstname = payload.data.firstname;
+            const lastname = payload.data.lastname;
+            const password = payload.data.password;
+            const phonenumber = payload.data.phonenumber;
+            const role = payload.data.role;
+            const username = payload.data.username;
+
+            this.props.getUserSearchResolved(userid,driverlicense,email,firstname,lastname,password,phonenumber,role,username);
+        })
     }
     render() {
         return(
+            <div className="App">
+            <div id="margin-hero">
+
             <div id="manager-component-background">
-                <ManagerTabsComponent />
-                <h1 id="white-heading">User Information: Get Users by ID</h1>
-                <hr></hr>
+                <div className="form-row">
+                    <div className="form-group col-md-12">
+                        <ManagerTabsComponent />
+                    </div>
+                </div>
+                <div className="form-row">
+                        <h1 id="white-heading">User Information: Get Users by ID</h1>
+                        <hr></hr>
+                </div>
                 <form>
                     <div className="form-row">
-                        <Link to="/get-all-users">
-                            <button type="submit" className="btn btn-dark">Get all Users</button>    
-                        </Link>
-                        <Link to="/get-user-by-id">
-                            <button type="submit" className="btn btn-dark">Get User by ID</button>
-                        </Link>
-                        <Link to="/update-user-information">
-                            <button type="submit" className="btn btn-dark">Update User Inforamtion</button>
-                        </Link>
-                        <br></br>
+                        <div className="form-group col-md-12">
+                            <Link to="/get-all-users">
+                                <button type="submit" className="btn btn-dark">Get all Users</button>    
+                            </Link>
+                            <Link to="/get-user-by-id">
+                                <button type="submit" className="btn btn-dark">Get User by ID</button>
+                            </Link>
+                            <Link to="/update-user-information">
+                                <button type="submit" className="btn btn-dark">Update User Inforamtion</button>
+                            </Link>
+                        </div>
                     </div>
-                    <br></br>
                     <div className="form-row">
                         <br></br>
                         <div className="form-group col-md-2">
                             <label className="white-label">Search User by Id</label>
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="number" value={this.state.userid} onChange={(event: any) => this.handleChange(event)} />
+                        <input type="number" onChange={(event) => this.handleInputChange(event)} />
                         </div>
                         <div className="form-group col-md-8">
                         <table className="table table-dark">
@@ -97,22 +118,25 @@ export class GetUserByIdComponent extends React.Component<any,any> {
                             </tr>
                             </tbody>        
                         </table>
-                        <button type="submit" className="btn btn-dark" onClick={() => this.props.USER_BY_ID_RESOLVED({MockUser})}>Submit</button>
+                        <button onClick={() => this.handleSubmit()}>Submit</button>
                         </div>
                     </div>
                 </form>
             </div>
+            </div>
+            </div>
         )
     }
 }
-const mapStateToProps = (state: IState) => ({
-    user: state.userComponent
+
+const mapStateToProps = (state:IState) => ({
+    user: state.getUser
 });
 
-const MapDispatchToProps = {
-    USERS_GET_RESOLVED: userActions.usersGetResolved,
-    USERS_UPDATE_REQUEST: userActions.usersUpdateRequest,
-    USER_BY_ID_RESOLVED: userActions.userByIdResolved
-}
+const mapDispatchToProps = {
+    getUserInputUpdate: getUserInputUpdate,
+    getUserSubmitRequest: getUserSubmitRequest,
+    getUserSearchResolved: getUserSearchResolved
+};
 
-export default connect(mapStateToProps, MapDispatchToProps)(GetUserByIdComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(GetUserByIdComponent)

@@ -7,7 +7,7 @@ const initialState: IManageCarState = {
     page: 1
 };
 
-export const getAllCarsReducer = (state = initialState, action: any) => {
+export const carsReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case carsTypes.CARS_GET_RESOLVED:
             return {

@@ -17,6 +17,7 @@ hr {
 }
 #white-heading {
   color: white;
+  padding: 15px;
 }
 .center-button {
   text-align: center;
@@ -64,8 +65,8 @@ select {
 
 .container {
   position: absolute;
-  margin: 20px;
-  padding: 16px;
+  margin: 15px;
+  padding: 20px;
   background-color: #333;
   opacity: 0.9;
   background-color: rgba(0,0,0,0.5);
@@ -77,7 +78,7 @@ select {
 }
 
 #manager-component-background {
-  background-image: url('../src/assets/business-background.png');
+  background-image: url('../src/assets/darkness.png');
   background-size: cover;
   background-position: center center;
   top: 0;
@@ -85,6 +86,7 @@ select {
   height: 100vh;
   z-index: -10;
   margin: 0;
+  /* opacity: 0.8; */
 }
 
 .manager-component-background-overlay {
