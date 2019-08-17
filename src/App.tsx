@@ -24,7 +24,7 @@ import   GetTransactionsbyUserId    from './components/get-transactions-by-users
 import { UpdateTransactionComponent } from './components/update-transactions-component';
 import { Provider } from 'react-redux';
 import { store } from './Store';
-import ClickerComponent from './components/clicker.component';
+import ClickerComponent from '../components/clicker.component';
 // If you exported the connected component as a default export
 // ensure you importing that component with a default import (no {})
 import PokeComponent from './components/poke.component';
@@ -33,14 +33,23 @@ import UserComponent from './components/User Profile/user.component';
 // import { GetAllCarInformationComponent } from './components/get-all-car-information-component';
 import  GetUserByIdTestComponent  from '../src/components/get-user-component(test)';
 import { CheckoutComponent } from './components/checkout-component/checkout-component';
+import SignInSide from './components/LogIn_Main_Component';
+import SignUp from './components/Sign_Up_Main_Component';
+import MainAppBar from './components/NavBar_Component';
+import { Home } from './components/Home_Component';
+import Login_SignUp from './components/LogIn_SignUp_Component';
 
 const App: React.FC = () => {
   return (
     <div>
       <Provider store={store}>
       <HashRouter>
-        <NavComponent />
+        {/* <NavComponent /> */}
+        <MainAppBar/>
         <Switch /* switch different routes based on routers, clicking a component opens new route*/>
+          <Route path ="/" exact component={Home}/>
+          <Route path ="/Home" exact component={Home}/>
+          <Route path ="/Login" exact component={Login_SignUp}/>
           <Route path="/clicker" component={ClickerComponent} />
           <Route path="/poke" component={PokeComponent} />
           <Route path="/test" component={GetUserByIdTestComponent} />
@@ -66,7 +75,7 @@ const App: React.FC = () => {
       </HashRouter>
       </Provider>
     </div>
-  );
-}
+  )}
+
 
 export default App;
