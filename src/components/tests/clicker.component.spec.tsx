@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ClickerComponent, IClickerProps } from './clicker.component';
+import { ClickerComponent, IClickerProps } from '../clicker.component';
 
 /**
  * Enzyme is a testing package for React

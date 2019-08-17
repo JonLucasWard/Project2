@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 import NavComponent from './components/nav-component';
 import './include/bootstrap';
-import {Switch, Route} from 'react-router';
-import {HashRouter} from 'react-router-dom';
+import { Switch, Route } from 'react-router';
+import { HashRouter } from 'react-router-dom';
 import { InputRentalFormComponent } from './components/search-page-input-forms';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import { ManagerInputComponent } from './components/manager-input-component';
@@ -22,7 +22,6 @@ import { EnterNewCarComponent } from './components/enter-new-car-component';
 import  GetAllTransactionsComponent  from './components/get-all-transactions-component';
 import   GetTransactionsbyUserId    from './components/get-transactions-by-users';
 import { UpdateTransactionComponent } from './components/update-transactions-component';
-// import './App.scss';
 import { Provider } from 'react-redux';
 import { store } from './Store';
 import ClickerComponent from './components/clicker.component';
@@ -30,6 +29,7 @@ import ClickerComponent from './components/clicker.component';
 // ensure you importing that component with a default import (no {})
 import PokeComponent from './components/poke.component';
 // import { GetAllUsersTestComponent } from './components/get-all-users-test-component';
+import UserComponent from './components/User Profile/user.component';
 // import { GetAllCarInformationComponent } from './components/get-all-car-information-component';
 import  GetUserByIdTestComponent  from '../src/components/get-user-component(test)';
 
@@ -43,6 +43,7 @@ const App: React.FC = () => {
           <Route path="/clicker" component={ClickerComponent} />
           <Route path="/poke" component={PokeComponent} />
           <Route path="/test" component={GetUserByIdTestComponent} />
+          <Route path="/userProfile" component={UserComponent} />
           <Route path="/look-for-a-car" component={InputRentalFormComponent} />
           <Route path="/manager-actions" component={ManagerInputComponent} />
           <Route path="/users" component={UserInformationComponent} />
