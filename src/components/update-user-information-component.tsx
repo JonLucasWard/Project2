@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ManagerTabsComponent } from './manager-tabs-component';
 import Axios from 'axios';
-import { User } from '../models/AppModels';
+import { User } from '../models/App-models';
 import { MockUser } from '../models/dummyData';
 
 interface IUpdateUserProps {
@@ -10,7 +10,7 @@ interface IUpdateUserProps {
     submitting: any;
 }
 
-export class UpdateUserInformationComponent extends React.Component<any,any> {
+export class UpdateUserInformationComponent extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -26,7 +26,7 @@ export class UpdateUserInformationComponent extends React.Component<any,any> {
         }
     }
 
-    handleInputChange(event: any)  {
+    handleInputChange(event: any) {
         const value = event.target.value;
         const field = event.target.id;
         this.setState({
@@ -49,7 +49,7 @@ export class UpdateUserInformationComponent extends React.Component<any,any> {
                 <form>
                     <div className="form-row">
                         <Link to="/get-all-users">
-                            <button type="submit" className="btn btn-dark" onChange={(event) => this.handleInputChange(event)}>Get all Users</button>    
+                            <button type="submit" className="btn btn-dark" onChange={(event) => this.handleInputChange(event)}>Get all Users</button>
                         </Link>
                         <Link to="/get-user-by-id">
                             <button type="submit" className="btn btn-dark">Get User by ID</button>
@@ -70,70 +70,70 @@ export class UpdateUserInformationComponent extends React.Component<any,any> {
                             <button className="btn btn-dark">Submit</button>
                         </div>
                         <div className="form-group col-md-8">
-                        <table className="table table-dark">
-                            <thead>
-                                <tr>
-                                    <th scope="col">User ID</th>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">Password</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Drivers License No.</th>
-                                    <th scope="col">Role</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            </tbody>        
-                        </table>
+                            <table className="table table-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">User ID</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Password</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Drivers License No.</th>
+                                        <th scope="col">Role</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <h1>Update Information</h1>
                     <div className="form-row">
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.id} onChange={(event) => this.handleInputChange(event)} placeholder="User ID"/>
+                            <input type="text" value={this.state.id} onChange={(event) => this.handleInputChange(event)} placeholder="User ID" />
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.username} onChange={(event) => this.handleInputChange(event)} placeholder="Username"/>
+                            <input type="text" value={this.state.username} onChange={(event) => this.handleInputChange(event)} placeholder="Username" />
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.password} onChange={(event) => this.handleInputChange(event)} placeholder="Password"/>
+                            <input type="text" value={this.state.password} onChange={(event) => this.handleInputChange(event)} placeholder="Password" />
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.firstname} onChange={(event) => this.handleInputChange(event)} placeholder="First Name"/>
+                            <input type="text" value={this.state.firstname} onChange={(event) => this.handleInputChange(event)} placeholder="First Name" />
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.lastname} onChange={(event) => this.handleInputChange(event)} placeholder="Last Name"/>
+                            <input type="text" value={this.state.lastname} onChange={(event) => this.handleInputChange(event)} placeholder="Last Name" />
                         </div>
                     </div>
                     <div className="form-row">
-                    <div className="form-group col-md-2">
-                            <input type="text" value={this.state.email} onChange={(event) => this.handleInputChange(event)} placeholder="Email"/>
+                        <div className="form-group col-md-2">
+                            <input type="text" value={this.state.email} onChange={(event) => this.handleInputChange(event)} placeholder="Email" />
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.phone} onChange={(event) => this.handleInputChange(event)} placeholder="Phone Number"/>
+                            <input type="text" value={this.state.phone} onChange={(event) => this.handleInputChange(event)} placeholder="Phone Number" />
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.driversLicenseno} onChange={(event) => this.handleInputChange(event)} placeholder="Drivers License Number"/>
+                            <input type="text" value={this.state.driversLicenseno} onChange={(event) => this.handleInputChange(event)} placeholder="Drivers License Number" />
                         </div>
                         <div className="form-group col-md-2">
-                            <input type="text" value={this.state.roleid} onChange={(event) => this.handleInputChange(event)} placeholder="Role"/>
+                            <input type="text" value={this.state.roleid} onChange={(event) => this.handleInputChange(event)} placeholder="Role" />
                         </div>
                     </div>
                     <div className="form-row">
-                        <button type="submit"  onClick={() => this.props.USERS_UPDATE_REQUEST([MockUser])} />
+                        <button type="submit" onClick={() => this.props.USERS_UPDATE_REQUEST([MockUser])} />
                     </div>
                 </form>
             </div>

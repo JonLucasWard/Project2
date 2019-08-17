@@ -5,17 +5,16 @@ import { combineReducers } from "redux";
 import { clickerReducer } from "./clicker.reducer";
 import { pokeReducer } from "./poke.reducer";
 import { searchReducer } from "./search.reducer";
-import { Rental } from "../models/App-models"
-
-export interface ISearchState {
-    page: number
-    rentals: Rental[]
-};
-import { User, Rental, Car } from "../models/AppModels";
+import { User, Rental, Car } from "../models/App-models";
 import { user0Reducer } from "./user.reducer";
 import { userReducer } from "./user-reducer";
 import { getAllCarsReducer } from "./car-reducer";
 import { getAllRentalsReducer } from "./rental-reducer";
+export interface ISearchState {
+    page: number
+    rentals: Rental[]
+};
+
 
 export interface IUserState { // state of user profile component
     thisUser: User, //user's info
@@ -58,25 +57,19 @@ export interface IPokeState { // set state interface of poke
 export interface IState {
     clicker: IClickerState,
     poke: IPokeState,
-<<<<<<< HEAD
     search: ISearchState
-=======
     userProfile: IUserState,
     carComponent: IManageCarState,
     userComponent: IManagerUserState,
     rentalComponent: IManageRentalState
->>>>>>> 8130525a7d126871fc172914dde86391b0f73279
 }
 
 export const state = combineReducers<IState>({
     clicker: clickerReducer,
     poke: pokeReducer,
-<<<<<<< HEAD
-    search: searchReducer
-=======
+    search: searchReducer,
     userProfile: user0Reducer,
     carComponent: getAllCarsReducer,
     userComponent: userReducer,
     rentalComponent: getAllRentalsReducer
->>>>>>> 8130525a7d126871fc172914dde86391b0f73279
 })

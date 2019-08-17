@@ -3,8 +3,10 @@ button.button {
     transition-duration: 0.4s;
     position: absolute;
     right: 100px;
-    bottom: 50px;
-    width: 6.3%;
+    bottom: 36px;
+    width: 7.3%;
+    height: 30px;
+    font-size:10px;
   }
 
   button.button2 {
@@ -12,14 +14,26 @@ button.button {
     transition-duration: 0.4s;
     position: absolute;
     right: 100px;
-    top: 60px;
+    bottom: 70px;
+    width: 7.3%;
+    height: 30px;
+    font-size:10px;
   }
 
-  a.list-group-item list-group-item-action active{
-    background-color: white;
-    color: white;
+  button.button3 {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    position: absolute;
+    right: 100px;
+    bottom: 3px;
+    width: 7.3%;
+    height: 30px;
+    font-size:10px;
   }
 
+  img.center{
+    right: 100px;
+  }
   #title-bar{
     padding:0px;
   }

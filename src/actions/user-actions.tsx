@@ -1,4 +1,4 @@
-import { User } from '../models/AppModels';
+import { User } from '../models/App-models';
 
 export const usersTypes = {
     USERS_GET_RESOLVED: 'USERS_GET_RESOLVED',
@@ -7,8 +7,8 @@ export const usersTypes = {
     USER_BY_ID_RESOLVED: 'USER_BY_ID_RESOLVED'
 };
 
-export const usersGetResolved = 
-    (user: User) => 
+export const usersGetResolved =
+    (user: User) =>
         (dispatch: any) => {
             dispatch({
                 payload: { user },
@@ -16,7 +16,7 @@ export const usersGetResolved =
             });
         }
 
-export const usersUpdateRequest = 
+export const usersUpdateRequest =
     (user: User) =>
         (dispatch: any) => {
             dispatch({
@@ -25,12 +25,12 @@ export const usersUpdateRequest =
             });
         }
 
-export const userByIdResolved = 
-        (id: number) => 
-            (dispatch: any) => {
-                dispatch({
-                    payload: id,
-                    type: usersTypes.USER_BY_ID_RESOLVED
-                });
-            }
+export const userByIdResolved =
+    (id: number) =>
+        (dispatch: any) => {
+            dispatch({
+                payload: id,
+                type: usersTypes.USER_BY_ID_RESOLVED
+            });
+        }
 

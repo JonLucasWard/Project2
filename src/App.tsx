@@ -28,7 +28,7 @@ import ClickerComponent from './components/clicker.component';
 // If you exported the connected component as a default export
 // ensure you importing that component with a default import (no {})
 import PokeComponent from './components/poke.component';
-import  SearchDisplayComponent  from './components/search-display-component';
+import SearchDisplayComponent from './components/search-display-component';
 import UserComponent from './components/User Profile/user.component';
 // import { GetAllCarInformationComponent } from './components/get-all-car-information-component';
 
@@ -57,7 +57,8 @@ const App: React.FC = () => {
               <Route path="/transactions" component={TransactionInformationComponent} />
               <Route path="/get-all-transactions" component={GetAllTransactionsComponent} />
               <Route path="/get-transactions-by-user" component={GetTransactionsbyUserId} />
-              <Route patth="/update-transaction" component={UpdateTransactionComponent} />
+              <Route path="/update-transaction" component={UpdateTransactionComponent} />
+              <Route path="/search-display" component={SearchDisplayComponent} />
               <Route component={InputRentalFormComponent} />
               {/* <Route component={ClickerComponent} /> */}
             </Switch>

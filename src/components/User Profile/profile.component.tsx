@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import { User } from '../../models/AppModels';
+import { User } from '../../models/App-models';
 import { MockUser } from '../../models/dummyData';
 
 interface IProfileComponentProps {
