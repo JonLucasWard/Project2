@@ -16,17 +16,17 @@ export const carsGetResolved =
             payload: { car },
             type: carsTypes.CARS_GET_RESOLVED
             });
+            alert("Getting all cars");
         }
 
 export const viewAvailableCar = 
         (statusid:number) =>
             (dispatch: any) => {
                 dispatch({
-                    payload: {
-                        statusid
-                    },
+                    payload: statusid,
                     type: carsTypes.VIEW_AVAILABLE_CAR
-                })
+                });
+                alert("Retrieving all available cars");
             }
 
 export const carsPageRequest = 

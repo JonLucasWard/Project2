@@ -10,9 +10,15 @@ export class TransactionInformationComponent extends React.Component<any,any> {
     render() {
         return (
             <div id="manager-component-background">
-                <ManagerTabsComponent />
-                <h1 id="white-heading">Transaction Information</h1>
-                <hr></hr>
+                <div className="form-row">
+                    <div className="form-group col-md-12">
+                        <ManagerTabsComponent />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <h1 id="white-heading">Transaction Information</h1>
+                    <hr></hr>
+                </div>
                 <form>
                     <div className="form-row">
                         <Link to="/get-all-transactions">

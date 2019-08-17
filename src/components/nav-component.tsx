@@ -18,7 +18,7 @@ const NavComponent: React.FC = () => {
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link to="/home" className="nav-link">Home <span className="sr-only"></span></Link>
+                            <Link to="/test" className="nav-link">Home <span className="sr-only"></span></Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/look-for-a-car" className="nav-link">Rent a Car</Link>
