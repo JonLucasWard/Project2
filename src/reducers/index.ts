@@ -3,7 +3,7 @@
 import { combineReducers } from "redux";
 import { clickerReducer } from "./clicker.reducer";
 import { pokeReducer } from "./poke.reducer";
-import { Car } from '../models/AppModels';
+import { Car, PayInfo } from '../models/AppModels';
 import { User } from '../models/AppModels';
 import { user0Reducer } from "./user.reducer";
 import { Rental } from '../models/AppModels';
@@ -16,6 +16,7 @@ import { carsReducer } from './car-reducer';
 import { getAllRentalsReducer } from './get-all-rentals-reducer';
 import { getRentalByUserReducer } from "./get-rental-by-user-reducer";
 import userComponent from "../components/User Profile/user.component";
+import { checkoutReducer } from '../reducers/checkout-reducer';
 
 export interface IUserState { // state of user profile component
     thisUser: User, //user's info
@@ -29,6 +30,9 @@ export interface IUserState { // state of user profile component
 
 // import { searchCarReducer } from '../reducers/search-rentals-reducer';
 
+export interface CheckoutState {
+    payinfo: PayInfo[]
+}
 // test interface of GetAllUsersComponent
 export interface GetUserState {
     userid: number;
@@ -169,6 +173,7 @@ export interface IState {
     getAllCars: GetAllCarsState,
     getAllRentals: GetAllRentalState,
     getRentalByUser: GetRentalByUserState,
+    checkout: CheckoutState
     // searchCars: SearchRentalState
 }
 
@@ -185,6 +190,7 @@ export const state = combineReducers<IState>({
     getAllAvailableCars: getAllAvailableCarsReducer,
     getAllCars: getAllCarsReducer,
     getAllRentals: getAllRentalsReducer,
-    getRentalByUser: getRentalByUserReducer
+    getRentalByUser: getRentalByUserReducer,
+    checkout: checkoutReducer
     // searchCars: searchCarReducer
 })

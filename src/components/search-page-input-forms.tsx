@@ -29,6 +29,7 @@ export class InputRentalFormComponent extends React.Component<any, any> {
             <div className="App">
                 <div id="margin-hero">
                     <div id="hero">
+                        <br></br>
                     <section>
                             <form className="container">
                                 <div className="form-row">

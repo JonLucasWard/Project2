@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import NavComponent from './components/nav-component';
 import './include/bootstrap';
 import { Switch, Route } from 'react-router';
@@ -32,6 +32,7 @@ import PokeComponent from './components/poke.component';
 import UserComponent from './components/User Profile/user.component';
 // import { GetAllCarInformationComponent } from './components/get-all-car-information-component';
 import  GetUserByIdTestComponent  from '../src/components/get-user-component(test)';
+import { CheckoutComponent } from './components/checkout-component/checkout-component';
 
 const App: React.FC = () => {
   return (
@@ -44,6 +45,7 @@ const App: React.FC = () => {
           <Route path="/poke" component={PokeComponent} />
           <Route path="/test" component={GetUserByIdTestComponent} />
           <Route path="/userProfile" component={UserComponent} />
+          <Route path="/checkout" component={CheckoutComponent} />
           <Route path="/look-for-a-car" component={InputRentalFormComponent} />
           <Route path="/manager-actions" component={ManagerInputComponent} />
           <Route path="/users" component={UserInformationComponent} />
@@ -58,7 +60,7 @@ const App: React.FC = () => {
           <Route path="/get-all-transactions" component={GetAllTransactionsComponent} />  
           <Route path="/get-transactions-by-user" component={GetTransactionsbyUserId} />  
           <Route patth="/update-transaction" component={UpdateTransactionComponent} /> 
-          <Route path="/test" component={GetUserByIdTestComponent} />
+          <Route path="/test" component={CheckoutComponent} />
           {/* <Route component={ClickerComponent} /> */}
         </Switch>
       </HashRouter>
