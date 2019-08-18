@@ -29,6 +29,7 @@ import ClickerComponent from './components/clicker.component';
 // ensure you importing that component with a default import (no {})
 import PokeComponent from './components/poke.component';
 import SearchDisplayComponent from './components/search-display-component';
+import MoreInfoComponent from './components/more.info.component';
 import UserComponent from './components/User Profile/user.component';
 // import { GetAllCarInformationComponent } from './components/get-all-car-information-component';
 
@@ -59,7 +60,8 @@ const App: React.FC = () => {
               <Route path="/get-transactions-by-user" component={GetTransactionsbyUserId} />
               <Route path="/update-transaction" component={UpdateTransactionComponent} />
               <Route path="/search-display" component={SearchDisplayComponent} />
-              <Route component={InputRentalFormComponent} />
+              <Route path="/more-info" component={MoreInfoComponent} />
+              <Route path="/input-rental-form" component={InputRentalFormComponent} />
               {/* <Route component={ClickerComponent} /> */}
             </Switch>
           </Switch>
