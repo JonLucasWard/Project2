@@ -21,12 +21,15 @@ const NavComponent: React.FC = () => {
                             <Link to="/test" className="nav-link">Home <span className="sr-only"></span></Link>
                         </li>
                         <li className="nav-item">
+                            <Link to="/checkout" className="nav-link">Checkout</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link to="/look-for-a-car" className="nav-link">Rent a Car</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/manager-actions" className="nav-link" href="#">Manager Actions</Link>
                         </li>
-                        <li className="nav-item active" /* clicker is state is displayed here*/>
+                        <li className="nav-item" /* clicker is state is displayed here*/>
                             <Link to="/clicker" className="unset-anchor nav-link">Clicker</Link>
                         </li>
                         <li className="nav-item active dropdown">
