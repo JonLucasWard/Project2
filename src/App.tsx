@@ -24,7 +24,7 @@ import   GetTransactionsbyUserId    from './components/get-transactions-by-users
 import { UpdateTransactionComponent } from './components/update-transactions-component';
 import { Provider } from 'react-redux';
 import { store } from './Store';
-import ClickerComponent from '../components/clicker.component';
+import ClickerComponent from './components/clicker.component';
 // If you exported the connected component as a default export
 // ensure you importing that component with a default import (no {})
 import PokeComponent from './components/poke.component';

@@ -94,37 +94,37 @@ render(){
           </div>
           <div className="form">
           <div className="form-group">
-              <label htmlFor="firstname">First Name</label>
+              
               <input type="text" name="firstname" placeholder="First Name"  onChange={(e) => this.updateValue(e)}/>
             </div>
 
             <div className="form-group">
-              <label htmlFor="lastname">Last Name</label>
+             
               <input type="text" name="lastname" placeholder="Last Name"  onChange={(e) => this.updateValue(e)}/>
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              
               <input type="text" name="email" placeholder="email"  onChange={(e) => this.updateValue(e)}/>
             </div>
 
             <div className="form-group">
-                <label htmlFor="phonenumber">Phone #</label>
+               
                 <input type="text" name="phonenumber" placeholder="Phone #"  onChange={(e) => this.updateValue(e)}/>
               </div>
 
               <div className="form-group">
-                <label htmlFor="driverlicense">Driver License</label>
+                
                 <input type="text" name="driverlicense" placeholder="Driver License"  onChange={(e) => this.updateValue(e)}/>
               </div>
 
             <div className="form-group">
-              <label htmlFor="username">Username</label>
+              
               <input type="text" name="username" placeholder="Username"  onChange={(e) => this.updateValue(e)}/>
             </div>
           
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              
               <input type="text" name="password" placeholder="Password"  onChange={(e) => this.updateValue(e)}/>
             </div>
           </div>

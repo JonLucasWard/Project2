@@ -45,7 +45,7 @@ class Login_SignUp extends React.Component <any, any> {
     return (
       <div className="login_div">
         <div className="login">
-          <div className="container" ref={ref => (this.container = ref)}>
+          <div className="container2" ref={ref => (this.container = ref)}>
             {isLogginActive && (
               <Login containerRef={(ref: any) => (this.current = ref)} />
             )}
