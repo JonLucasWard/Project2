@@ -6,7 +6,7 @@ export const getUserTypes = {
 
 export const getUserInputUpdate = (inputValue: number) => (dispatch: any) => {
     dispatch({
-        payload: {inputValue},
+        payload: { inputValue },
         type: getUserTypes.GET_USER_INPUT_UPDATE
     });
 }
@@ -21,21 +21,19 @@ export const getUserSubmitRequest = () => (dispatch: any) => {
 }
 
 export const getUserSearchResolved = (
-    userid: number, 
-    driverlicense: string, 
-    email: string, 
-    firstname: string, 
-    lastname: string, 
-    password: string, 
-    phonenumber: string, 
-    role: number, 
+    userid: number,
+    driverlicense: string,
+    email: string,
+    firstname: string,
+    lastname: string,
+    password: string,
+    phonenumber: string,
+    role: number,
     username: string
-    
-    ) =>  (dispatch: any) => 
-    
-    {
-    dispatch({
-        payload: {userid, driverlicense, email, firstname, lastname, password, phonenumber, role, username},
-        type: getUserTypes.GET_USER_SEARCH_RESOLVED
-    });
-}
+
+) => (dispatch: any) => {
+        dispatch({
+            payload: { userid, driverlicense, email, firstname, lastname, password, phonenumber, role, username },
+            type: getUserTypes.GET_USER_SEARCH_RESOLVED
+        });
+    }

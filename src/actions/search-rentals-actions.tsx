@@ -18,37 +18,37 @@ export const userSearchRentalRequest = () => (dispatch: any) => {
     });
 }
 
-export const searchRentalResolved = 
-(
-    carid: number,
-    brand: string,
-    model: string, 
-    makeYear: string,
-    occupancy: number,
-    transmission: string,
-    mileage: number,
-    color: string,
-    ac: boolean,
-    statusid: number,
-    rate: number,
-    typeid: number
-) => (dispatch: any) => {
-    dispatch({
-        payload: {
-            carid,
-            brand,
-            model,
-            makeYear,
-            occupancy,
-            transmission,
-            mileage,
-            color,
-            ac,
-            statusid,
-            rate,
-            typeid
-        },
+export const searchRentalResolved =
+    (
+        carid: number,
+        brand: string,
+        model: string,
+        makeYear: string,
+        occupancy: number,
+        transmission: string,
+        mileage: number,
+        color: string,
+        ac: boolean,
+        statusid: number,
+        rate: number,
+        typeid: number
+    ) => (dispatch: any) => {
+        dispatch({
+            payload: {
+                carid,
+                brand,
+                model,
+                makeYear,
+                occupancy,
+                transmission,
+                mileage,
+                color,
+                ac,
+                statusid,
+                rate,
+                typeid
+            },
 
-        type: searchRentalTypes.SEARCH_RENTAL_RESOLVED
-    });
-}
+            type: searchRentalTypes.SEARCH_RENTAL_RESOLVED
+        });
+    }

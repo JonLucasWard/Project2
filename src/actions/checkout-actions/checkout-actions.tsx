@@ -4,9 +4,9 @@ export const checkoutActionsTypes = {
     CHECKOUT_RESOLVED: 'CHECKOUT_RESOLVED'
 };
 
-export const checkoutResolved = (payinfo: object) => (dispatch: any) => {
+export const checkoutResolved = (Payinfo: PayInfo) => (dispatch: any) => {
     dispatch({
-        payload: {payinfo},
+        payload: { Payinfo },
         type: checkoutActionsTypes
     });
 }

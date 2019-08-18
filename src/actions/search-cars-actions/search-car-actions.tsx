@@ -6,7 +6,7 @@ export const searchCarTypes = {
     SEARCH_CAR_SEARCH_RESOLVED: 'SEARCH_CAR_SEARCH_RESOLVED'
 }
 
-export const searchCarInputUpdate = 
+export const searchCarInputUpdate =
     (inputValue: any) => (dispatch: any) => {
         dispatch({
             payload: { inputValue },

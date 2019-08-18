@@ -14,7 +14,7 @@ export interface IUpdateUserProps {
     submitting: any;
 }
 
-export class UpdateUserInformationComponent extends React.Component<any,any> {
+export class UpdateUserInformationComponent extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
     }
@@ -34,7 +34,7 @@ export class UpdateUserInformationComponent extends React.Component<any,any> {
                 <form>
                     <div className="form-row">
                         <Link to="/get-all-users">
-                            <button type="submit" className="btn btn-dark">Get all Users</button>    
+                            <button type="submit" className="btn btn-dark">Get all Users</button>
                         </Link>
                         <Link to="/get-user-by-id">
                             <button type="submit" className="btn btn-dark">Get User by ID</button>
@@ -55,77 +55,77 @@ export class UpdateUserInformationComponent extends React.Component<any,any> {
                             <button type="submit" className="btn btn-dark">Submit</button>
                         </div>
                         <div className="form-group col-md-8">
-                        <table className="table table-dark">
-                            <thead>
-                                <tr>
-                                    <th scope="col">User ID</th>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">Password</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Drivers License No.</th>
-                                    <th scope="col">Role</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            </tbody>        
-                        </table>
+                            <table className="table table-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">User ID</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Password</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Drivers License No.</th>
+                                        <th scope="col">Role</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <h1 className="white-label">Update Information</h1>
-                    
+
                     <div className="form-row">
                         <div className="form-group col-md-3">
-                            <input type="text" placeholder="User ID"/>
+                            <input type="text" placeholder="User ID" />
                         </div>
                         <div className="form-group col-md-3">
-                            <input type="text" placeholder="First Name"/>
+                            <input type="text" placeholder="First Name" />
                         </div>
                         <div className="form-group col-md-3">
-                            <input type="text" placeholder="Role"/>
-                        </div> 
+                            <input type="text" placeholder="Role" />
+                        </div>
                     </div>
 
                     <div className="form-row">
-                        <div className="form-group col-md-3">                 
-                            <input type="text" placeholder="Username"/>
+                        <div className="form-group col-md-3">
+                            <input type="text" placeholder="Username" />
                         </div>
                         <div className="form-group col-md-3">
-                            <input type="text" placeholder="Last Name"/>
-                       </div>
-                       <div className="form-group col-md-3">
+                            <input type="text" placeholder="Last Name" />
+                        </div>
+                        <div className="form-group col-md-3">
                             <input type="text" placeholder="Phone Number"></input>
                         </div>
                     </div>
 
                     <div className="form-row">
                         <div className="form-group col-md-3">
-                            <input type="text" placeholder="Password"/>
-                        </div>  
-                        <div className="form-group col-md-3">
-                            <input type="text" placeholder="Email"/>
+                            <input type="text" placeholder="Password" />
                         </div>
                         <div className="form-group col-md-3">
-                            <input type="text" placeholder="Drivers License Number"/>
+                            <input type="text" placeholder="Email" />
+                        </div>
+                        <div className="form-group col-md-3">
+                            <input type="text" placeholder="Drivers License Number" />
                         </div>
                     </div>
 
                     <div className="form-row">
                         <div className="form-group col-md-12">
-                            <button type="submit"className="btn btn-dark">Submit</button>
+                            <button type="submit" className="btn btn-dark">Submit</button>
                         </div>
                     </div>
                 </form>

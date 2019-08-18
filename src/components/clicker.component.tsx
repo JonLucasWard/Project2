@@ -17,7 +17,7 @@ export class ClickerComponent extends React.Component<IClickerProps, {}> { //mak
     render() {// make the html with a clicks that tracks the props-click state, and a button that runs the update function
         return (
             <div>
-                <h2>Clicks: {this.props.clicker.clicks}</h2>
+                <h2>Clicks: {this.props.clicker.amount}</h2>
                 <button onClick={() => this.props.updateClicks(1)}>+1</button>
             </div>
         )

@@ -34,9 +34,9 @@ export const updateUserTypes = {
 //     phonenumber: string, 
 //     role: number, 
 //     username: string
-    
+
 //     ) =>  (dispatch: any) => 
-    
+
 //     {
 //     dispatch({
 //         payload: {userid, driverlicense, email, firstname, lastname, password, phonenumber, role, username},

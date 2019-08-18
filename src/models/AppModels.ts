@@ -1,9 +1,3 @@
-/**
- * Data objects to match our database objects. Not unique to any component, but still
- * used frequently between many components. 
- * Import from here if you need to access a given model.
- */
-
 export interface User {
     id: number,
     username: string,

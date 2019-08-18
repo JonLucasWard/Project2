@@ -1,9 +1,11 @@
-import { IClickerState } from ".";
-import { clickerTypes } from "../actions/clicker.actions";
+import { MockRental, MockRental2 } from "../models/dummyData"
+import { searchTypes } from "../actions/search.action";
+import { ISearchState } from "../reducers/index";
 
 // Defining initial state of clicker
-const initialState: IClickerState = {
-    amount: 0
+const initialState: ISearchState = {
+    page: 1,
+    rentals: [MockRental]
 };
 
 // Define the reducer for the clicker
@@ -12,12 +14,14 @@ const initialState: IClickerState = {
 // requires it. If not, we will return the current state.
 // Usually, we will switch on an action, and capture the various actions
 // that we need to handle
-export const clickerReducer = (state = initialState, action: any) => {
+export const searchReducer = (state = initialState, action: any) => {
     switch (action.type) {
-        case clickerTypes.CLICKER_UPDATE:
+        case searchTypes.SEARCH_UPDATE:
             return {
                 ...state,
-                clicks: state.amount + action.payload.amount
+                rentals: [MockRental, MockRental2],
+                page: 1
+
             }
         default: break;
     }

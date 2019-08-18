@@ -28,17 +28,17 @@ export const getAllCarsSearchResolved = (
 ) => (dispatch: any) => {
     dispatch({
         payload: {
-            carid, 
-            brand, 
-            model, 
-            makeYear, 
-            occupancy, 
-            transmission, 
-            mileage, 
-            color, 
-            ac, 
-            statusid, 
-            rate, 
+            carid,
+            brand,
+            model,
+            makeYear,
+            occupancy,
+            transmission,
+            mileage,
+            color,
+            ac,
+            statusid,
+            rate,
             typeid
         },
         type: getAllCarsTypes.GET_ALL_CARS_SEARCH_RESOLVED

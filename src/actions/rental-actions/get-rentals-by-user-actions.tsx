@@ -6,7 +6,7 @@ export const getRentalsByUserTypes = {
 
 export const getRentalsByUserInputUpdate = (userid: number) => (dispatch: any) => {
     dispatch({
-        payload: ( userid ),
+        payload: (userid),
         type: getRentalsByUserTypes.GET_ALL_RENTALS_INPUT_UPDATE
     });
 }

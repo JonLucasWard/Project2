@@ -35,7 +35,7 @@ export const getAvailableCarsSearchResolved = (
     typeid: number
 ) => (dispatch: any) => {
     dispatch({
-        payload: {carid, brand, model, makeYear, occupancy, transmission, mileage, color, ac, statusid, rate, typeid},
+        payload: { carid, brand, model, makeYear, occupancy, transmission, mileage, color, ac, statusid, rate, typeid },
         type: getAvailableCarsTypes.GET_AVAILABLE_CARS_SEARCH_RESOLVED
     })
 }
