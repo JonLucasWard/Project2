@@ -1,50 +1,154 @@
-// from poke, disconnected from main app for now until we re-do this design
-$primary-color: #023991;
-$primary-color-compliment: #02915a;
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
-// Small tablets and large smartphones (landscape view)
-$screen-sm-min: 576px;
-
-// Small tablets (portrait view)
-$screen-md-min: 768px;
-
-// Tablets and small desktops
-$screen-lg-min: 992px;
-
-// Large tablets and desktops
-$screen-xl-min: 1200px;
-
-// Small devices
-@mixin sm {
-  @media (min-width: #{$screen-sm-min}) {
-      @content;
-  }
+.date-label {
+  font-size: 20px;
+  text-decoration: underline;
+  padding: 15px;
+  color: white;
+}
+.white-label {
+  color: white;
+  font-size: 20px;
 }
 
-// Medium devices
-@mixin md { // note how SCSS nests elements
-  @media (min-width: #{$screen-md-min}) {
-      @content;
-  }
+#manager-component-buttons {
+  border-radius: 100px;
+}
+hr {
+  color: white;
+}
+#white-heading {
+  color: white;
+  padding: 15px;
+}
+.center-button {
+  text-align: center;
 }
 
-// Large devices
-@mixin lg {
-  @media (min-width: #{$screen-lg-min}) {
-      @content;
-  }
+.select-time {
+  padding: 10px;
 }
 
-// Extra large devices
-@mixin xl {
-  @media (min-width: #{$screen-xl-min}) {
-      @content;
-  }
+.tabs-color {
+  background-color: silver;
+  border-color: black;
+  border-style: solid;
 }
 
+select {
+  padding: 5px;
+}
+
+#margin-hero {
+  margin: 0px;
+}
+
+#hero {
+  background-image: url('./assets/car-rental-search-img.png');
+  background-size: cover;
+  background-position: center center;
+  /* position: relative; */
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  z-index: -10;
+  margin: 0;
+}
+
+#hero-overlay {
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);
+  top: 0; 
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -5;
+}
+
+.container {
+  /* position: absolute; */
+  margin: 15px;
+  padding: 20px;
+  background-color: #333;
+  opacity: 0.9;
+  /* opacity: 0.75; */
+}
+
+.nav-tabs-center {
+  margin: auto;
+  color: gray !important;
+}
+
+#manager-component-background {
+  background-image: url('../src/assets/darkness.png');
+  background-size: cover;
+  background-position: center center;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  z-index: -10;
+  margin: 0;
+  /* opacity: 0.8; */
+}
+
+.manager-component-background-overlay {
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -5;
+}
+
+.manager-form-container {
+  position: absolute;
+  margin: 20x;
+  padding: 16px;
+  background-color: #333;
+  opacity: 0.9;
+  background-color: rgba(0,0,0,0.5);
+}
+
+#tab {
+  font-size: 25px;
+  padding: 10px;
+}
+
+.checkout-form {
+  text-align: center;
+}
+
+.checkout-background {
+  background-image: url('../src/assets/wrx.jpg');
+  background-size: cover;
+  background-position: center center;
+  /* position: relative; */
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  z-index: -10;
+  margin: 0;
+  opacity: 0.8;
+  background-color: #333;
+}
+
+.checkout-container {
+  /* position: absolute; */
+  margin: 15px;
+  padding: 15px;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0.9;
+  /* opacity: 0.75; */
+//Custom Fonts
+}
 
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
 }
 
 .App-logo {
@@ -77,56 +181,169 @@ $screen-xl-min: 1200px;
   }
 }
 
-#main-content-container {
+//Login Main Container
+.login {
+  width: 27em;
+  height: 50em;
+  //min-height: 44em;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-}
+  margin-top: 30px;
+  margin-left: 11%;
+  position: relative;
+  z-index: 99;
+  .container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0px 0px 12px 2px orangered;
+    border-radius: 4px;
+    position: relative;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    padding: 17px 10px;
+    transition: transform 200ms ease-in-out;
+  }
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90%;
+    background-color: #3498db;
+    width: 100%;
+    position: absolute;
+    right: -34%;
+    border-radius: 6px;
+    z-index: 1;
+    transition: all 400ms ease-in-out;
+    cursor: pointer;
+    box-shadow: 0px 0px 12px 2px orangered;
 
-/*****************************
-  NAV
-*****************************/
-.rev-logo {
-  width: auto;
-  height: 2em;
-  margin-right: 2em;
-}
-
-.margin-nav {
-  margin-right: 2em
-}
-
-
-.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-  color: rgba(0,0,0,.7);
-}
-
-.navbar-expand-md .navbar-nav .nav-link {
-  padding-right: .75rem !important;
-  padding-left: .75rem !important;
-}
-
-nav {
-  border-bottom: 1px solid #ffffff !important;
-  margin-bottom: 20px;
-  -webkit-box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
-  -moz-box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
-  box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
-  background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(2,57,145,0.7903536414565826) 44%,$primary-color 100%);
-
-  .dropdown-menu {
-    background-color: transparent;
-
-    @include lg {
-      background-color: $primary-color;
+    &.right {
+      right: -40%;
+      align-items: flex-end;
+      &:hover {
+        right: -45%;
+      }
+    }
+    &.left {
+      right: 40%;
+      align-items: flex-start;
+      &:hover {
+        right: 45%;
+      }
     }
 
-    .dropdown-item:hover {
-      background-color: $primary-color-compliment;
+    .text {
+      font-size: 21px;
+      font-weight: 500;
+      color: #fff;
+      margin-right: 3em;
+      margin-left: 3em;
     }
   }
 }
 
-#examples-dropdown {
+//Button
+.btn {
+  font-size: 21px;
+  padding: 5px 20px;
+  border: 0;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 3px;
+  transition: all 250ms ease-in-out;
   cursor: pointer;
+  &:hover {
+    background-color: #2386c8;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.base-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .header {
+    font-size: 24px;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    .image {
+      width: 20em;
+      img {
+        width: 100%;
+        height: 80%;
+      }
+    }
+
+    .form {
+      margin-top: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: fit-content;
+        label {
+          font-size: 16px;
+        }
+        input {
+          margin-top: 3px;
+          min-width: 18em;
+          height: 30px;
+          padding: 0px 1px;
+          font-size: 16px;
+          font-family: "Open Sans", sans-serif;
+          background-color: #f3f3f3;
+          border: 0;
+          border-radius: 4px;
+          margin-bottom: 1px;
+          transition: all 250ms ease-in-out;
+          &:hover {
+            //background-color: #ffffff;
+            //box-shadow: 0px 0px 14px 0.3px #0e81ce96;
+          }
+
+          &:focus {
+            outline: none;
+            box-shadow: 0px 0px 12px 0.8px #3474dbb2;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    margin-top: 3em;
+  }
+}
+
+.login_div{
+  width: 100%;
+  height: 92.2vh;
+  background-image: url('./assets/CoolCar.jpg');
+  display: flex;
+}
+
+.Home_Div{
+  width: 100%;
+  height: 92.2vh;
+
+  background-image: url('./assets/lamborghini-forsennato-concept.jpg');
 }

@@ -1,4 +1,4 @@
-import * as Models from './App-models';
+import * as Models from './AppModels';
 
 export var MockUser = <Models.User>{
     id: 1, username: 'JonWard', password: 'password',

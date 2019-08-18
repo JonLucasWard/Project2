@@ -1,16 +1,23 @@
 import React from 'react';
 import { ManagerTabsComponent } from './manager-tabs-component';
 import { Link } from 'react-router-dom';
-import { IState, IManageRentalState } from '../reducers/index';
-import * as rentalActions from '../actions/rental-actions';
+import { IState, GetAllRentalState } from '../reducers/index';
+import { getAllRentalsSubmitRequest, getAllRentalsSearchResolved} from '../actions/rental-actions/get-all-rentals-actions';
 import { connect } from 'react-redux';
-import { MockRental, MockRental2 } from '../models/dummyData';
+import Axios from 'axios';
 
-export interface IRentalProps {
-    rental: IManageRentalState;
-    rentalsGetResolved: (rental: object) => void;
-    rentalsGetResolvedByUser: (id: number) => void;
-    rentalsUpdateRequest: (id: number) => void;
+export interface GetAllRentalProps {
+    allRentals: GetAllRentalState;
+    getAllRentalsSubmitRequest: () => void;
+    getAllRentalsSearchResolved: (
+        transactionid: number,
+        userid: number,
+        carid: number,
+        daterented: string,
+        expectedreturn: string,
+        approved: boolean,
+        allRentals: {}
+    ) => void;
 }
 
 export class GetAllTransactionsComponent extends React.Component<any,any> {
@@ -18,12 +25,36 @@ export class GetAllTransactionsComponent extends React.Component<any,any> {
         super(props);
     }
 
+    handleSubmit() {
+        console.log('submit clicked for all rentals');
+        const url = 'https"//localhost: 8080/teame/rentals/all';
+        this.props.getAllRentalsSubmitRequest();
+        Axios.get(url).then(payload => {
+            const transactionid = payload.data.transactionid;
+            const userid = payload.data.userid;
+            const carid = payload.data.carid;
+            const daterented = payload.data.daterented;
+            const expectedreturn = payload.data.expectedreturn;
+            const approved = payload.data.approved;
+
+            this.props.getAllRentalsSearchResolved(
+                transactionid, userid, carid, daterented, expectedreturn, approved
+            );
+        })
+    }
+
     render() {
         return(
             <div id="manager-component-background">
-                <ManagerTabsComponent />
-                <h1 id="white-heading">Transaction Information: View All Transactions</h1>
-                <hr></hr>
+                <div className="form-row">
+                    <div className="form-group col-md-12">
+                        <ManagerTabsComponent />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <h1 id="white-heading">Transaction Information: View All Transactions</h1>
+                    <hr></hr>
+                </div>
                     <div className="form-row">
                         <Link to="/get-all-transactions">
                             <button type="submit" className="btn btn-dark">Get All Transaction Information</button>
@@ -87,19 +118,19 @@ export class GetAllTransactionsComponent extends React.Component<any,any> {
                             </tr>
                             </tbody>        
                     </table>
-                    <button className="btn btn-dark" onClick={() => this.props.RENTALS_GET_RESOLVED({MockRental, MockRental2})}>Submit</button>
+                    <button className="btn btn-dark" onClick={() => this.handleSubmit()}>Submit</button>
             </div>
         )
     }
 }
+
 const mapStateToProps = (state: IState) => ({
-    rental: state.rentalComponent
-});
+    getAllRentals: state.getAllRentals
+})
 
 const mapDispatchToProps = {
-    RENTALS_GET_RESOLVED: rentalActions.rentalsGetResolved,
-    RENTALS_GET_RESOLVED_BY_USER: rentalActions.rentalsGetResolvedByUser,
-    RENTALS_UPDATE_REQUEST: rentalActions.rentalsUpdateRequest
-}
+    getAllRentalsSubmitRequest: getAllRentalsSubmitRequest,
+    getAllRentalsSearchResolved: getAllRentalsSearchResolved
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(GetAllTransactionsComponent)

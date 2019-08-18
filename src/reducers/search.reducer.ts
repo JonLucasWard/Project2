@@ -1,6 +1,6 @@
-import {MockRental, MockRental2} from "../models/AppModels"
+import { MockRental, MockRental2 } from "../models/dummyData"
 import { searchTypes } from "../actions/search.action";
-import {ISearchState} from "../reducers/index";
+import { ISearchState } from "../reducers/index";
 
 // Defining initial state of clicker
 const initialState: ISearchState = {

@@ -1,4 +1,4 @@
-import { Rental } from '../models/App-models';
+import { Rental } from '../models/AppModels';
 
 export const rentalTypes = {
     RENTALS_GET_RESOLVED: 'RENTALS_GET_RESOLVED',
@@ -13,15 +13,17 @@ export const rentalsGetResolved =
                 payload: { rental },
                 type: rentalTypes.RENTALS_GET_RESOLVED
             });
+            alert("Getting All Transactions")
         }
 
 export const rentalsGetResolvedByUser =
-    (userid: number) =>
+    (id: number) =>
         (dispatch: any) => {
             dispatch({
-                payload: userid,
+                payload: id,
                 type: rentalTypes.RENTALS_GET_RESOLVED_BY_USER
             });
+            alert("Getting Transactions by User IDs")
         }
 export const rentalsUpdateRequest =
     (rental: Rental) =>
@@ -30,4 +32,5 @@ export const rentalsUpdateRequest =
                 payload: { rental },
                 type: rentalTypes.RENTALS_UPDATE_REQUEST
             });
+            alert("Updating Transaction Information")
         }

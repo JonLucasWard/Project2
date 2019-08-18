@@ -1,4 +1,4 @@
-import { User } from '../models/App-models';
+import { User } from '../models/AppModels';
 
 export const usersTypes = {
     USERS_GET_RESOLVED: 'USERS_GET_RESOLVED',
@@ -14,6 +14,7 @@ export const usersGetResolved =
                 payload: { user },
                 type: usersTypes.USERS_GET_RESOLVED
             });
+            alert("Getting Users!");
         }
 
 export const usersUpdateRequest =
@@ -23,6 +24,7 @@ export const usersUpdateRequest =
                 payload: { user },
                 type: usersTypes.USERS_UPDATE_REQUEST
             });
+            alert(`Updated User: ${user.id}`)
         }
 
 export const userByIdResolved =
@@ -32,5 +34,6 @@ export const userByIdResolved =
                 payload: id,
                 type: usersTypes.USER_BY_ID_RESOLVED
             });
+            alert(`Retrieved User with ID number of ${id}`)
         }
 

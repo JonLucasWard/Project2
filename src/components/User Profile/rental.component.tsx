@@ -1,5 +1,5 @@
 import React from 'react';
-import { Rental } from '../../models/App-models'
+import { Rental } from '../../models/AppModels'
 
 interface IRentalComponentProps {
     rental: Rental;

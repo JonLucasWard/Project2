@@ -8,7 +8,7 @@
  * NOTE! Users cannot edit their rentals, this would cause a massive cascade in the database.
  * Maybe as a stretch goal we can implement that and manage the cascade, but not now.
  */
-import { User } from '../models/App-models';
+import { User } from '../models/AppModels';
 
 export const userTypes = { // make object of action types for reducer to understand later
     USER_GET_RESOLVED: 'USER_GET_RESOLVED', // get user info for left display
