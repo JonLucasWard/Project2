@@ -83,6 +83,16 @@ export default function MainAppBar() {
                     <MenuItem  onClick={handleClose}>
                       <Button  href="/Home">Home</Button>
                     </MenuItem>
+                    {jwt ?
+                    <MenuItem  onClick={handleClose}>
+                      <Button  href="#manager-actions">Manager Actions</Button>
+                    </MenuItem>: null
+                    }
+                    {jwt ?
+                    <MenuItem  onClick={handleClose}>
+                      <Button  href="#manager-actions">Manager Actions</Button>
+                    </MenuItem>:null
+                    }
                 
               </Menu>
               
